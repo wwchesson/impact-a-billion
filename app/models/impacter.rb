@@ -1,0 +1,2 @@
+class Impacter < User
+end
