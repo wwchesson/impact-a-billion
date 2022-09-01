@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {  Route, Routes } from "react-router-dom";
 import UserProfile from "./UserProfile";
 import NavBar from "./NavBar";
+import Posts from "./Posts"
 
 function App() {
   const [users, setUsers] = useState([])
@@ -21,8 +22,8 @@ function App() {
           <NavBar />
          <Routes>
           
-          <Route path="/users/:id" element={<UserProfile />}>
-
+          <Route path="/users/:id" element={<UserProfile />}></Route>
+          <Route path="/posts/:id" element={<Posts />}>
           </Route>
         </Routes>
 
