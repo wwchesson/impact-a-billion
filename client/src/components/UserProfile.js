@@ -23,17 +23,15 @@ function UserProfile() {
         <div>
             <CssBaseline>
                 <Box className="user-profile" justifyContent="center" alignItems="center" display="flex" padding="10px">
-                    <Avatar alt={singleUser.name} src={singleUser.image}  sx={{marginTop: 5, width: 200, height: 200 }}></Avatar>
+                    <Avatar alt={singleUser.name} src={singleUser.image}  sx={{marginTop: 10, width: 200, height: 200 }}></Avatar>
                 </Box>
                 <Typography variant="h3" padding="10px" justifyContent="center" display="flex">{name}</Typography>
                 <br></br>
                 <Card sx={{borderRadius: "16px",  border: 1, borderColor: "grey.500", }} id="user-card">
                     <CardContent  >
                         <Typography id="user-info"  variant="h5">
-                            Skills: {skills}  <IconButton ><EditIcon ></EditIcon>  </IconButton>              
+                            Skills: {skills}  <IconButton id="edit-icon"><EditIcon ></EditIcon>  </IconButton>              
                         </Typography>
-
-                       
                         <Typography id="user-info" variant="h5">
                             Availability: {availability} <IconButton id="edit-icon"><EditIcon ></EditIcon>  </IconButton>
                         </Typography>
