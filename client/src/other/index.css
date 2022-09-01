@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#user-info{
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  margin-bottom: 1em;
+}
+
+#user-card{
+  
+  width: 30em;
+  height: 20em;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 2em;
+  
+}
+
+#edit-icon{
+  align-items: right;
+  justify-content: right;
+  text-align: right;
+}
+
