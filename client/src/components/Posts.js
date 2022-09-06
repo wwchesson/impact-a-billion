@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import {useParams} from "react-router-dom";
 import {Card, Grid, CardContent, Typography} from "@mui/material"
 import UserPosts from "./UserPosts"
+import { UserContext } from "./Context"
 
 function Posts() {
     const [posts, setPosts] = useState([])
@@ -24,7 +25,7 @@ function Posts() {
             {posts.map((post) => (
                 <UserPosts 
                 key={post.id} 
-                post={posts.filter((post) => post.user_id = user.id)} 
+                // post={posts.filter((post) => post.user_id = user.id)} 
                 
                 />
                 

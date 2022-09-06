@@ -2,19 +2,32 @@ import { useState, useEffect } from "react";
 import {  Route, Routes } from "react-router-dom";
 import UserProfile from "./UserProfile";
 import NavBar from "./NavBar";
-import Posts from "./Posts"
+import Posts from "./Posts";
+import LoginPage from "../auth/LoginPage"
 
 function App() {
-  const [users, setUsers] = useState([])
+  const [currentUser, setCurrentUser] = useState(null);
+  // const [users, setUsers] = useState([])
 
+  // useEffect(() => {
+  //   fetch("/users")
+  //     .then((r) => r.json())
+  //     .then((data) => {
+  //       console.log(data)
+  //       setUsers(data)
+  //     })
+  // }, []);
+  
+  //auto-login
   useEffect(() => {
-    fetch("/users")
-      .then((r) => r.json())
-      .then((data) => {
-        console.log(data)
-        setUsers(data)
-      })
+    fetch("/me").then((r) => {
+      if(r.ok) {
+        r.json().then((currentUser) => setCurrentUser(currentUser))
+      }
+    });
   }, []);
+
+  if (!currentUser) return <LoginPage onLogin={setCurrentUser} />;
 
   return (
 

@@ -10,18 +10,14 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    render json: @current_user, status: :created
   end
 
   # POST /users
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      render json: @user, status: :created, location: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
+    user = User.create!(user_params)
+    session[:user_id] = user.id
+    render json: user, status: :created
   end
 
   # PATCH/PUT /users/1
@@ -46,6 +42,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :password_digest, :type, :name, :email, :zip, :skillls, :availability, :travel_radius, :token_points, :org_name, :admin)
+      params.require(:user).permit(:username, :password, :password_confirmation, :name, :email, :zip, :skills, :availability, :travel_radius)
     end
 end
