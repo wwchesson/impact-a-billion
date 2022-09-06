@@ -3,19 +3,24 @@ import { useNavigate } from "react-router-dom";
 import { Box, TextField, Button, Typography } from "@mui/material";
 
 function SignupForm({ onLogin }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
-  const navigate = useNavigate();
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [zip, setZip] = useState("")
+    const [errors, setErrors] = useState([]);
+    const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/login", {
+    setErrors([]);
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, password, password_confirmation: passwordConfirmation, name, email, zip }),
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
@@ -30,9 +35,9 @@ function SignupForm({ onLogin }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} >
         <Box
-          sx={{ "& .MuiTextField-root": { m: 1, width: "25ch" } }}
+          sx={{height: '100%', "& .MuiTextField-root": { m: 2, width: "25ch" } }}
           noValidate
           autoComplete="off"
         >
@@ -43,6 +48,7 @@ function SignupForm({ onLogin }) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          <br />
           <TextField
             id="outlined-password-input"
             label="Password"
@@ -50,6 +56,24 @@ function SignupForm({ onLogin }) {
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+          <br />
+          <TextField
+            id="outlined-password-confirmation-input"
+            label="Password Confirmation"
+            type="password"
+            autoComplete="current-password"
+            value={passwordConfirmation}
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+          />
+          <br />
+          <TextField
+            id="outlined-name-input"
+            label="Name"
+            type="text"
+            autoComplete="off"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <br />
           <Button type="submit">

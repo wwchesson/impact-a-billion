@@ -10,7 +10,7 @@ function LoginPage({onLogin}) {
        <CssBaseline>
             <Typography >Welcome to #impactABillion where you have the chance to change lives.</Typography>
         <br />
-        <Card sx={{borderRadius: "16px",  border: 1, borderColor: "grey.500", }} id="user-card">
+        <Card sx={{borderRadius: "16px",  border: 1, borderColor: "grey.500", margin: "auto", width: 500, display: "flex", justifyContent: "center"}}>
             <CardContent>
                 {showLogin ? (
                     <>

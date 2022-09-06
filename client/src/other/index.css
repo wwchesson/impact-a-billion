@@ -29,6 +29,13 @@ code {
   
 }
 
+#signin-form{
+  width: 500px;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+}
+
 #edit-icon{
   align-items: right;
   justify-content: right;
