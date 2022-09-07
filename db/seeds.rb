@@ -3,7 +3,7 @@ puts "Seeding y'all..."
 10.times do (
     Impacter.create(
         username: Faker::Internet.username,
-        password_digest: Faker::Internet.password,
+        password: "please",
         type: "Impacter",
         name: Faker::Name.name,
         email: Faker::Internet.safe_email,

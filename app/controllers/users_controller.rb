@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show update destroy ]
+  skip_before_action :authorize, only: :create
 
   # GET /users
   def index
@@ -10,6 +11,11 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    render json: @user 
+  end
+
+  def authenticateuser
+    @current_user = User.find_by(id: session[:user_id])
     render json: @current_user, status: :created
   end
 
@@ -42,6 +48,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation, :name, :email, :zip)
+      params.permit(:username, :password, :password_confirmation, :type, :name, :email, :zip, :skills, :availability, :travel_radius, :token_points, :org_name, :admin, :image, :birthdate)
     end
 end
+

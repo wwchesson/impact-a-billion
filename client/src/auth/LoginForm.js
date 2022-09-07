@@ -21,14 +21,16 @@ function LoginForm({ onLogin }) {
           r.json().then((user) => {
             console.log(user);
             onLogin(user);
+            
           });
-          navigate("/");
+          navigate("/home");
         } else {
           r.json().then((err) => setErrors(err.errors));
         }
       });
     }
-  
+
+      
     return (
       <form onSubmit={handleSubmit}>
           <Box
@@ -57,9 +59,9 @@ function LoginForm({ onLogin }) {
                 Log In
               </Typography>
             </Button>
-            {errors.map((err) => (
-              <h4>{err}</h4>
-            ))}
+            {/* {errors.map((err) => (
+              <h4 key={err}>{err}</h4>
+            ))} */}
             
           </Box>
         </form> 

@@ -12,7 +12,6 @@ function UserProfile() {
         fetch(`/users/${id}`)
         .then((r) => r.json())
         .then((data) => {
-            console.log(data);
             setSingleUser(data)
         })
     }, [id]);

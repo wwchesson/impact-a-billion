@@ -4,37 +4,18 @@ import UserProfile from "./UserProfile";
 import NavBar from "./NavBar";
 import Posts from "./Posts";
 import LoginPage from "../auth/LoginPage"
+import Home from "./Home"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  // const [users, setUsers] = useState([])
-
-  // useEffect(() => {
-  //   fetch("/users")
-  //     .then((r) => r.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //       setUsers(data)
-  //     })
-  // }, []);
-  
-  //auto-login
-  useEffect(() => {
-    fetch("/me").then((r) => {
-      if(r.ok) {
-        r.json().then((currentUser) => setCurrentUser(currentUser))
-      }
-    });
-  }, []);
-
-  if (!currentUser) return <LoginPage onLogin={setCurrentUser} />;
-
-  return (
+    
+    return (
 
       <div className="App">
-          <NavBar />
+        <NavBar />
          <Routes>
-          
+          <Route path="/" element={<LoginPage />}></Route>
+          <Route path="/home" element={<Home />} ></Route>
           <Route path="/users/:id" element={<UserProfile />}></Route>
           <Route path="/posts/:id" element={<Posts />}>
           </Route>

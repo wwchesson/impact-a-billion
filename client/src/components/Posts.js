@@ -1,12 +1,11 @@
 import React, {useState, useEffect, useContext} from "react";
-import {useParams} from "react-router-dom";
-import {Card, Grid, CardContent, Typography} from "@mui/material"
+import { Grid, Container} from "@mui/material"
 import UserPosts from "./UserPosts"
-import { UserContext } from "./Context"
+import { UserContext } from "../Context"
 
 function Posts() {
+    const user = useContext(UserContext)
     const [posts, setPosts] = useState([])
-    const { id } = useParams();
 
     useEffect(() => {
         fetch("/posts")
@@ -20,22 +19,23 @@ function Posts() {
 
     
     return (
-        <>
-        <Grid>
+        <Container maxWidth="md">
+        <Grid item xs={12} sm={6} md={4}>
             {posts.map((post) => (
                 <UserPosts 
                 key={post.id} 
-                // post={posts.filter((post) => post.user_id = user.id)} 
+                posts={posts.filter((post) => post.user_id = user.id)} 
                 
                 />
                 
 
             ))}
         </Grid>
+        </Container>
             
 
             
-        </>
+
     )
 }
 

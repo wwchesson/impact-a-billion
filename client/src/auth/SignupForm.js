@@ -27,7 +27,7 @@ function SignupForm({ onLogin }) {
           console.log(user);
           onLogin(user);
         });
-        navigate("/");
+        // navigate("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -37,7 +37,7 @@ function SignupForm({ onLogin }) {
   return (
     <form onSubmit={handleSubmit} >
         <Box
-          sx={{height: '100%', "& .MuiTextField-root": { m: 2, width: "25ch" } }}
+          sx={{ "& .MuiTextField-root": { m: 2, width: "25ch" } }}
           noValidate
           autoComplete="off"
         >
@@ -76,13 +76,31 @@ function SignupForm({ onLogin }) {
             onChange={(e) => setName(e.target.value)}
           />
           <br />
+          <TextField
+            id="outlined-email-input"
+            label="Email"
+            type="text"
+            autoComplete="off"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <br />
+          <TextField
+            id="outlined-zip-input"
+            label="Zip Code"
+            type="text"
+            autoComplete="off"
+            value={zip}
+            onChange={(e) => setZip(e.target.value)}
+          />
+          <br />
           <Button type="submit">
             <Typography id="signup-submit" variant="h5">
               Sign Up
             </Typography>
           </Button>
           {errors.map((err) => (
-            <h4>{err}</h4>
+            <h4 key={err}>{err}</h4>
           ))}
           
         </Box>
