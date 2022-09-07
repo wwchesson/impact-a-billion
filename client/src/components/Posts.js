@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useContext} from "react";
+import { Link } from "react-router-dom"
 import { Grid, Container, Button} from "@mui/material"
 import UserPosts from "./UserPosts"
 import { UserContext } from "../Context"
@@ -22,11 +23,11 @@ function Posts() {
         <div>
         <Grid container spacing={2}>
             <Grid item xs={6}> 
-               <Button>New Post</Button> 
+               <Link to={"/newpost"}>New Post</Link> 
             </Grid>
-            <Grid item xs={6}> 
+            {/* <Grid item xs={6}> 
                <Button>New Request</Button> 
-            </Grid>
+            </Grid> */}
         </Grid>
         <Container maxWidth="md">
         <Grid item xs={12} sm={6} md={4}>
