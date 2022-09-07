@@ -1,52 +1,37 @@
-import React, {useState, useEffect, useContext} from "react";
-import { Link } from "react-router-dom"
-import { Grid, Container, Button} from "@mui/material"
-import UserPosts from "./UserPosts"
-import { UserContext } from "../Context"
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useParams } from "react-router-dom";
+import { Grid, Container, Button } from "@mui/material";
+import UserPosts from "./UserPosts";
+import { UserContext } from "../Context";
 
-function Posts() {
-    const user = useContext(UserContext)
-    const [posts, setPosts] = useState([])
-
-    useEffect(() => {
-        fetch("/posts")
-        .then(r => r.json())
-        .then((data) => {
-            // console.log(data);
-            setPosts(data);
-        })
-    }, [])
-
-
-    
-    return (
-        <div>
-        <Grid container spacing={2}>
-            <Grid item xs={6}> 
-               <Link to={"/newpost"}>New Post</Link> 
-            </Grid>
-            {/* <Grid item xs={6}> 
+function Posts({posts}) {
+  const user = useContext(UserContext);
+  const { id } = useParams();
+  
+  return (
+    <div>
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <Link to={"/newpost"}>
+            New Post
+          </Link>
+        </Grid>
+        {/* <Grid item xs={6}> 
                <Button>New Request</Button> 
             </Grid> */}
-        </Grid>
-        <Container maxWidth="md">
+      </Grid>
+      <Container maxWidth="md">
         <Grid item xs={12} sm={6} md={4}>
-            {posts.map((post) => (
-                <UserPosts 
-                key={post.id} 
-                posts={posts.filter((post) => post.user_id = user.id)} 
-                
-                />
-                
-
-            ))}
+          {posts.map((post) => (
+            <UserPosts
+              key={post.id}
+              posts={posts.filter((post) => (post.user_id = user.id))}
+            />
+          ))}
         </Grid>
-        </Container>
-        </div>
-
-            
-
-    )
+      </Container>
+    </div>
+  );
 }
 
 export default Posts;

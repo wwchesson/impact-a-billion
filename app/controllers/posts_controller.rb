@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show update destroy ]
+  skip_before_action :authorize, only: :create
 
   # GET /posts
   def index
@@ -46,6 +47,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:image, :likes, :commments, :user_id, :event_id)
+      params.permit(:image, :likes, :commments, :user_id, :event_id)
     end
 end
