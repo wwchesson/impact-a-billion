@@ -9,14 +9,9 @@ function Posts({ posts }) {
 
   return (
     <div>
-      <Grid container spacing={2}>
         <Grid item xs={6}>
           <Link to={"/newpost"}>New Post</Link>
         </Grid>
-        {/* <Grid item xs={6}> 
-               <Button>New Request</Button> 
-            </Grid> */}
-      </Grid>
       <Container maxWidth="md">
         <Grid item xs={12} sm={6} md={4}>
           {posts.map((post) => (

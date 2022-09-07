@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, CardContent, CardMedia} from "@mui/material"
+import {Card, CardContent, CardMedia, Typography} from "@mui/material"
 
 function UserPosts({posts}) {
 
@@ -16,7 +16,10 @@ function UserPosts({posts}) {
             >
             </CardMedia>
             <CardContent>
-                {post.comments}
+                <Typography variant="h4">
+                    {post.caption}
+                </Typography>
+                
             </CardContent>
         </Card>  
         ))

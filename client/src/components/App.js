@@ -30,8 +30,8 @@ function App() {
           <Route path="/" element={<LoginPage />}></Route>
           <Route path="/home" element={<Home />} ></Route>
           <Route path="/users/:id" element={<UserProfile />}></Route>
-          <Route path="/posts/:id" element={<Posts posts={posts}/>}></Route>
-          <Route path="/newpost" element={<PostForm />}></Route>
+          <Route path="/posts/:id" element={<Posts posts={posts} />}></Route>
+          <Route path="/newpost" element={<PostForm posts={posts} setPosts={setPosts}/>}></Route>
         </Routes>
 
        

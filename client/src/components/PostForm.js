@@ -1,38 +1,58 @@
-import React, {useState, useContext } from "react";
+import React, {useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import { UserContext } from "../Context"
 
-function PostForm({onAddPost}) {
+function PostForm({posts, setPosts}) {
+//program submit function
     const navigate = useNavigate();
     const user = useContext(UserContext);
-    // const [user, setUser] = useState({ posts: [] });
+    const userId = user.currentUser.id
+    const [userWithPosts, setUserWithPosts] = useState({ posts: [] });
+
+    useEffect(() => {
+        fetch(`/users/${userId}`)
+        .then(r => r.json())
+        .then((data) => setUserWithPosts(data))
+    }, [userId])
+
+    // console.log(userWithPosts)
 
     function handleAddNewPost(newPost) {
-        const userCopy = {...user};
+        const userCopy = {...userWithPosts};
         userCopy.posts.push(newPost);
-
+        setUserWithPosts(userCopy);
+        setPosts([...posts, newPost])
     }
 
-
-    const [image, setImage] = useState("");
-    const [caption, setCaption] = useState("");
+    //program form
+    // const [image, setImage] = useState("");
+    // const [caption, setCaption] = useState("");
     const [errors, setErrors] = useState([]);
+    const [postFormData, setPostFormData] = useState({
+        image: "",
+        caption: ""
+    })
+
+    function handlePostInputChange(e) {
+        setPostFormData({...postFormData, [e.target.name]: e.target.value})
+    }
 
     function handlePostSubmit(e) {
         e.preventDefault();
         setErrors([]);
+        const postData = {...postFormData, user_id: userId}
         fetch("/posts", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({image, caption})
+            body: JSON.stringify(postData)
         })
         .then((r) => r.json())
         .then((newPost) =>  {
-            onAddPost(newPost);
-            navigate(`/posts/${user.id}`)
+            handleAddNewPost(newPost);
+            navigate(`/posts/${userId}`)
         });
     }
 
@@ -47,17 +67,20 @@ function PostForm({onAddPost}) {
             id="outlined-image-input"
             label="Image"
             autoComplete="off"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
+            type="text"
+            name="image"
+            value={postFormData.image}
+            onChange={handlePostInputChange}
           />
           <br />
           <TextField
             id="outlined-caption-input"
             label="Caption"
             type="text"
+            name="caption"
             autoComplete="off"
-            value={caption}
-            onChange={(e) => setCaption(e.target.value)}
+            value={postFormData.caption}
+            onChange={handlePostInputChange}
           />
           <br />
   
