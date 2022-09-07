@@ -59,9 +59,9 @@ function LoginForm({ onLogin }) {
                 Log In
               </Typography>
             </Button>
-            {/* {errors.map((err) => (
+            {errors.map((err) => (
               <h4 key={err}>{err}</h4>
-            ))} */}
+            ))}
             
           </Box>
         </form> 
