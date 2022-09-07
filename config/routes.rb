@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :requests
   post "/signup", to: "users#create"
   get "/me", to: "users#authenticateuser"
   post "/login", to: "sessions#create"
