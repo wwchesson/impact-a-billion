@@ -5,8 +5,9 @@ import {AppBar, Typography} from "@mui/material";
 
 function NavBar() {
     const user = useContext(UserContext)
-    const profile = `/users/${user.id}`
-    const posts = `/posts/${user.id}`
+    const userId = user.currentUser.id
+    const profile = `/users/${userId}`
+    const posts = `/posts/${userId}`
 
     return (
         <div>

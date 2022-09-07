@@ -4,17 +4,14 @@ import { Grid, Container, Button } from "@mui/material";
 import UserPosts from "./UserPosts";
 import { UserContext } from "../Context";
 
-function Posts({posts}) {
+function Posts({ posts }) {
   const user = useContext(UserContext);
-  const { id } = useParams();
-  
+
   return (
     <div>
       <Grid container spacing={2}>
         <Grid item xs={6}>
-          <Link to={"/newpost"}>
-            New Post
-          </Link>
+          <Link to={"/newpost"}>New Post</Link>
         </Grid>
         {/* <Grid item xs={6}> 
                <Button>New Request</Button> 
@@ -25,7 +22,9 @@ function Posts({posts}) {
           {posts.map((post) => (
             <UserPosts
               key={post.id}
-              posts={posts.filter((post) => (post.user_id = user.id))}
+              posts={posts.filter(
+                (post) => (post.user_id = user.currentUser.id)
+              )}
             />
           ))}
         </Grid>

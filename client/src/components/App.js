@@ -19,9 +19,9 @@ function App() {
       });
   }, []);
 
-  function handleAddNewPost(newPost) {
-    setPosts([...posts, newPost]);
-  }  
+  // function handleAddNewPost(newPost) {
+  //   setPosts([...posts, newPost]);
+  // }  
 
     return (
       <div className="App">
@@ -31,7 +31,7 @@ function App() {
           <Route path="/home" element={<Home />} ></Route>
           <Route path="/users/:id" element={<UserProfile />}></Route>
           <Route path="/posts/:id" element={<Posts posts={posts}/>}></Route>
-          <Route path="/newpost" element={<PostForm onAddPost={handleAddNewPost}/>}></Route>
+          <Route path="/newpost" element={<PostForm />}></Route>
         </Routes>
 
        

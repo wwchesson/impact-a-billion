@@ -17,10 +17,9 @@ function UserProvider({children}) {
   
     if (!currentUser) return <LoginPage onLogin={setCurrentUser} />;
     
-    const value = currentUser
 
     return(
-        <UserContext.Provider value={value}>
+        <UserContext.Provider value={{currentUser, setCurrentUser}}>
             {children}
         </UserContext.Provider>
     )

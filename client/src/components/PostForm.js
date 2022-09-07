@@ -6,6 +6,14 @@ import { UserContext } from "../Context"
 function PostForm({onAddPost}) {
     const navigate = useNavigate();
     const user = useContext(UserContext);
+    // const [user, setUser] = useState({ posts: [] });
+
+    function handleAddNewPost(newPost) {
+        const userCopy = {...user};
+        userCopy.posts.push(newPost);
+
+    }
+
 
     const [image, setImage] = useState("");
     const [caption, setCaption] = useState("");
