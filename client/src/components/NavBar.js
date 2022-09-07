@@ -10,7 +10,7 @@ function NavBar() {
 
     return (
         <div>
-            <AppBar style={{ background: "#42234e", height: "4em", margin: "0em 0em em 0em" }}>
+            <AppBar position="static" style={{ background: "#42234e", height: "4em", margin: "0em 0em 1em 0em" }}>
                 <Link id="nav-link" to={profile} >Profile </Link>
                 <Link id="nav-link" to={posts}>Posts</Link>
             </AppBar>

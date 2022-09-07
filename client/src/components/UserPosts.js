@@ -16,7 +16,7 @@ function UserPosts({posts}) {
             >
             </CardMedia>
             <CardContent>
-                I love America
+                {post.comments}
             </CardContent>
         </Card>  
         ))
