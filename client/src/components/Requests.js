@@ -11,7 +11,7 @@ function Requests({ requests }) {
     <div>
         <Grid item xs={6} padding="20px">
             <Typography align="center" padding="10px">
-                <Link to={"/newpost"}>New Request</Link>
+                <Link to={"/newrequest"}>New Request</Link>
             </Typography>
         </Grid>
       <Container maxWidth="md">

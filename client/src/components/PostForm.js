@@ -26,8 +26,7 @@ function PostForm({posts, setPosts}) {
     }
 
     //program form
-    // const [image, setImage] = useState("");
-    // const [caption, setCaption] = useState("");
+
     const [errors, setErrors] = useState([]);
     const [postFormData, setPostFormData] = useState({
         image: "",
