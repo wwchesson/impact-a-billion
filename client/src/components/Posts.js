@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Grid, Container, Button } from "@mui/material";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Grid, Container } from "@mui/material";
 import UserPosts from "./UserPosts";
 import { UserContext } from "../Context";
 
