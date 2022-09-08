@@ -10,6 +10,7 @@ import Requests from "./Requests"
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [requests, setRequests] = useState([]);
 
   useEffect(() => {
     fetch("/posts")
@@ -20,9 +21,17 @@ function App() {
       });
   }, []);
 
-  // function handleAddNewPost(newPost) {
-  //   setPosts([...posts, newPost]);
-  // }  
+  useEffect(() => {
+    fetch("/requests")
+    .then(r => r.json())
+    .then((data) => {
+      console.log(data);
+      setRequests(data)
+    }
+    )
+  }, [])
+
+  
 
     return (
       <div className="App">
@@ -33,7 +42,7 @@ function App() {
           <Route path="/users/:id" element={<UserProfile />}></Route>
           <Route path="/posts/:id" element={<Posts posts={posts} />}></Route>
           <Route path="/newpost" element={<PostForm posts={posts} setPosts={setPosts}/>}></Route>
-          <Route path="/requests/:id" element={<Requests />}></Route>
+          <Route path="/requests/:id" element={<Requests requests={requests}/>}></Route>
         </Routes>
 
        
