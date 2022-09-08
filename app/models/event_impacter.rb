@@ -1,2 +1,0 @@
-class EventImpacter < ApplicationRecord
-end
