@@ -22,6 +22,8 @@ function App() {
       });
   }, []);
 
+  console.log(posts)
+
   useEffect(() => {
     fetch("/requests")
     .then(r => r.json())

@@ -10,9 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_153525) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_08_210144) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carescapes", force: :cascade do |t|
+    t.string "api_address"
+    t.string "image"
+    t.string "comments"
+    t.integer "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_impacters", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "location"
+    t.string "category"
+    t.boolean "completed"
+    t.integer "carescape_id"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "impacters", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -39,13 +67,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_153525) do
     t.string "name"
     t.string "description"
     t.string "images"
-    t.boolean "approved"
     t.string "category"
     t.integer "hours_requested"
     t.integer "user_id"
     t.integer "organizer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "zip"
+    t.integer "approved"
   end
 
   create_table "users", force: :cascade do |t|

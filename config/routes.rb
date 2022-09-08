@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :carescapes
+  resources :events
   resources :requests
   post "/signup", to: "users#create"
   get "/me", to: "users#authenticateuser"

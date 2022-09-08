@@ -1,0 +1,2 @@
+class Carescape < ApplicationRecord
+end

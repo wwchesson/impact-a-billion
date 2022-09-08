@@ -1,0 +1,2 @@
+class EventImpacter < ApplicationRecord
+end

@@ -21,7 +21,7 @@ function PostForm({posts, setPosts}) {
     function handleAddNewPost(newPost) {
         const userCopy = {...userWithPosts};
         userCopy.posts.push(newPost);
-        setUserWithPosts(userCopy);
+        // setUserWithPosts(userCopy);
         setPosts([...posts, newPost])
     }
 

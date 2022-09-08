@@ -16,14 +16,11 @@ function Requests({ requests }) {
         </Grid>
       <Container maxWidth="md">
         <Grid item xs={12} sm={6} md={4}>
-          {requests.map((request) => (
             <UserRequests
-              key={request.id}
               requests={requests.filter(
                 (request) => (request.user_id = user.currentUser.id)
               )}
             />
-          ))}
         </Grid>
       </Container>
     </div>
@@ -32,5 +29,8 @@ function Requests({ requests }) {
 
 export default Requests;
 
+{/* <UserPosts
+            posts = {posts.filter((post) => (post.user_id = user.currentUser.id))}
+            /> */}
 
 // :name, :description, :images, :approved, :category, :hours_requested, :user_id, :organizer_id

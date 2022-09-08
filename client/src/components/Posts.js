@@ -13,16 +13,9 @@ function Posts({ posts }) {
           <Link to={"/newpost"}>New Post</Link>
         </Grid>
       <Container maxWidth="md">
-        <Grid item xs={12} sm={6} md={4}>
-          {posts.map((post) => (
             <UserPosts
-              key={post.id}
-              posts={posts.filter(
-                (post) => (post.user_id = user.currentUser.id)
-              )}
+            posts = {posts.filter((post) => (post.user_id = user.currentUser.id))}
             />
-          ))}
-        </Grid>
       </Container>
     </div>
   );
