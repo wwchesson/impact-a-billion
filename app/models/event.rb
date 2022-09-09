@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
-    has_one :impacter_events
-    has_many :users, through: :impacter_events
+    has_many :impacter_events
+    has_many :impacters, through: :impacter_events
+
+    belongs_to :organizer
 end

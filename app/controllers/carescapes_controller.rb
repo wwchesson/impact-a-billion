@@ -46,6 +46,6 @@ class CarescapesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def carescape_params
-      params.require(:carescape).permit(:api_address, :image, :comments, :likes)
+      params.permit(:api_address, :image, :comments, :likes)
     end
 end

@@ -20,7 +20,7 @@ function SignupForm({ onLogin }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password, password_confirmation: passwordConfirmation, name, email, zip }),
+      body: JSON.stringify({ username, password, password_confirmation: passwordConfirmation, name, email, zip, type: "Impacter", admin: false }),
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {

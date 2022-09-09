@@ -10,7 +10,10 @@ function UserProvider({children}) {
     useEffect(() => {
       fetch("/me").then((r) => {
         if(r.ok) {
-          r.json().then((currentUser) => setCurrentUser(currentUser))
+          r.json().then((currentUser) => {
+            console.log(currentUser);
+            setCurrentUser(currentUser)
+          })
         }
       });
     }, []);
