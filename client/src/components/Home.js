@@ -17,9 +17,11 @@ function Home({posts}) {
     }
 
       return(
-        <Grid container>
+        <div>
             {userType()}
-        </Grid>
+        </div>
+
+
     )
 }
 
