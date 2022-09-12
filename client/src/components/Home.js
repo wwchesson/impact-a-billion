@@ -12,7 +12,7 @@ function Home({posts}) {
         if (type === "Organizer") {
             return <OrganizerHome></OrganizerHome>;
         } else {
-            return <ImpacterFeed feedImages = {posts.map((post) => (post.image))} posts={posts}></ImpacterFeed>;
+            return <ImpacterFeed posts={posts}></ImpacterFeed>;
         }
     }
 
