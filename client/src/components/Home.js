@@ -1,16 +1,25 @@
-import React, {useContext} from "react";
+import React, {useState, useContext} from "react";
 import {UserContext } from "../Context";
+import { Card, CardContent, CardMedia, Typography, Grid } from "@mui/material";
+import ImpacterFeed from "./ImpacterFeed"
+import OrganizerHome from "./OrganizerHome"
 
-function Home() {
+function Home({posts}) {
     const user = useContext(UserContext);
-    console.log(user.currentUser.type)
+    const type = user.currentUser.type
     
-    
+    const userType = () =>  {
+        if (type === "Organizer") {
+            return <OrganizerHome></OrganizerHome>;
+        } else {
+            return <ImpacterFeed feedImages = {posts.map((post) => (post.image))} posts={posts}></ImpacterFeed>;
+        }
+    }
 
-    return(
-        <>
-        <h4>This is working</h4>
-        </>
+      return(
+        <Grid container>
+            {userType()}
+        </Grid>
     )
 }
 

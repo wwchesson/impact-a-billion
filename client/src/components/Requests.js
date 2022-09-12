@@ -18,7 +18,7 @@ function Requests({ requests }) {
         <Grid item xs={12} sm={6} md={4}>
             <UserRequests
               requests={requests.filter(
-                (request) => (request.user_id = user.currentUser.id)
+                (request) => (request.user_id === user.currentUser.id)
               )}
             />
         </Grid>

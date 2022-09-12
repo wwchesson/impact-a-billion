@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 function UserRequests({ requests }) {
-    
+
   const approved = requests.map((request) => {
     if (request.approved === "pending") {
       return <Typography> <strong>Status:</strong> Still pending</Typography>;
@@ -31,6 +31,7 @@ function UserRequests({ requests }) {
             <Typography>
               <strong>Description:</strong> {request.description}{" "}
             </Typography>
+            <br />
             {approved}
           </CardContent>
         </Card>

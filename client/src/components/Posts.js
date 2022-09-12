@@ -12,9 +12,10 @@ function Posts({ posts }) {
         <Grid item xs={6}>
           <Link to={"/newpost"}>New Post</Link>
         </Grid>
+        <br />
       <Container maxWidth="md">
             <UserPosts
-            posts = {posts.filter((post) => (post.user_id = user.currentUser.id))}
+            posts = {posts.filter((post) => (post.user_id === user.currentUser.id))}
             />
       </Container>
     </div>

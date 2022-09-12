@@ -5,7 +5,7 @@ function UserPosts({ posts }) {
   return (
     <Grid item xs={12} sm={6} md={4}>
       {posts.map((post) => (
-        <Card key={post.id}>
+        <Card key={post.id} style={{margin: "5em 2em 2em 2em"}}>
           <CardMedia
             component="img"
             image={post.image}

@@ -26,8 +26,6 @@ function RequestForm({ requests, setRequests }) {
 
   //program form
   const [errors, setErrors] = useState([]);
-//   const [category, setCategory] = useState("");
-//   const [hoursRequested, setHoursRequested] = useState("");
   const [requestFormData, setRequestFormData] = useState({
     name: "",
     description: "",
@@ -43,7 +41,7 @@ function RequestForm({ requests, setRequests }) {
   function handleRequestSubmit(e) {
     e.preventDefault();
     setErrors([]);
-    const requestData = { ...requestFormData, user_id: userId };
+    const requestData = { ...requestFormData, user_id: userId, approved: "pending" };
     fetch("/requests", {
       method: "POST",
       headers: {
@@ -57,7 +55,7 @@ function RequestForm({ requests, setRequests }) {
         navigate(`/requests/${userId}`);
       });
   }
-  // :name, :description, :images, :approved, :category, :hours_requested, :user_id, :organizer_id
+  
   return (
     <form onSubmit={handleRequestSubmit}>
       <Box
@@ -89,7 +87,7 @@ function RequestForm({ requests, setRequests }) {
           id="outlined-images-input"
           label="Image"
           type="text"
-          name="image"
+          name="images"
           autoComplete="off"
           value={requestFormData.images}
           onChange={handleRequestInputChange}
@@ -98,10 +96,21 @@ function RequestForm({ requests, setRequests }) {
         <FormControl sx={{width: "250px", marginLeft: "15px", marginTop: "5px", marginBottom: "5px"}} >
             <InputLabel>Category</InputLabel>
             <Select
+                name="category"
                 value={requestFormData.category}
                 onChange={handleRequestInputChange}
-            >
-                <MenuItem value={"Beautification"}>Beautification</MenuItem>
+            > 
+                <MenuItem value={"AgroEcology"}>AgroEcology</MenuItem>
+                <MenuItem value={"Backpack Prep"}>Backpack Prep</MenuItem>
+                <MenuItem value={"Construction"}>Construction</MenuItem>
+                <MenuItem value={"Donation Organization"}>Donation Organization</MenuItem>
+                <MenuItem value={"Environmental Restoration"}>Environmental Restoration</MenuItem>
+                <MenuItem value={"Hospice Care"}>Hospice Care</MenuItem>
+                <MenuItem value={"Life Skills Instruction"}>Life Skills Instruction</MenuItem>
+                <MenuItem value={"Meal Share"}>Meal Share</MenuItem>
+                <MenuItem value={"Mentoring"}>Mentoring</MenuItem>
+                <MenuItem value={"Reforestation"}>Reforestation</MenuItem>
+                <MenuItem value={"Youth Program"}>Youth Program</MenuItem>
             </Select>
 
         </FormControl>
@@ -109,6 +118,7 @@ function RequestForm({ requests, setRequests }) {
         <FormControl sx={{width: "250px", marginLeft: "15px", marginTop: "15px", marginBottom: "15px"}} >
             <InputLabel>Hours Requested</InputLabel>
             <Select
+                name="hours_requested"
                 value={requestFormData.hours_requested}
                 onChange={handleRequestInputChange}
             >
