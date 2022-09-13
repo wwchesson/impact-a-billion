@@ -18,7 +18,7 @@ Organizer.create(username: "iwells", password: "iwells", type: "Organizer", name
 
 
 
-Event.create(name: "Revamp urban garden", description: "The beds need fixing and weeding.", location: "Atlanta Westside", category: "Gardening", completed:false, carescape_id: 1, organizer_id: 11, date: Faker::Time.forward(days: 30, period: :evening, format: :long))
+Event.create(name: "Revamp urban garden", description: "The beds need fixing and weeding.", location: "Atlanta Westside", category: "Gardening", completed:false, carescape_id: 1, organizer_id: 6, date: Faker::Time.forward(days: 30, period: :evening, format: :long))
 
 Carescape.create(api_address: "www.aiart.org", comments: "Such a good piece", likes: 3, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGVBG-gLrwqT_ZbUTjoHbgahHy1h2Qtx28xw&usqp=CAU")
 

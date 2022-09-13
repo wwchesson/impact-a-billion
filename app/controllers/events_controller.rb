@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show update destroy ]
+  skip_before_action :authorize, only: :create
 
   # GET /events
   def index
@@ -46,6 +47,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.permit(:name, :description, :location, :category, :completed, :carescape_id, :organizer_id)
+      params.permit(:name, :description, :location, :category, :completed, :carescape_id, :organizer_id, :date)
     end
 end
