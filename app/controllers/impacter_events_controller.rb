@@ -1,5 +1,5 @@
-class ImpacterEventController < ApplicationController
-    before_action :set_user, only: %i[ show update destroy ]
+class ImpacterEventsController < ApplicationController
+    before_action :set_impacterevent, only: %i[ show update destroy ]
     skip_before_action :authorize, only: :create
 
     def index
@@ -39,7 +39,7 @@ class ImpacterEventController < ApplicationController
     end
 
     def impacterevent_params
-        params.permit(:event_id, :user_id)
+        params.permit(:event_id, :impacter_id)
     end
 
 

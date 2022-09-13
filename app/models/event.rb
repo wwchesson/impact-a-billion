@@ -3,4 +3,7 @@ class Event < ApplicationRecord
     has_many :impacters, through: :impacter_events
 
     belongs_to :organizer
+
+    
+
 end

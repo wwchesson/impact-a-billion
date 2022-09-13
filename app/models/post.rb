@@ -1,3 +1,3 @@
 class Post < ApplicationRecord
-    belongs_to :impacter
+    belongs_to :user
 end

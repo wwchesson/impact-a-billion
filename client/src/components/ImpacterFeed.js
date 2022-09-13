@@ -4,29 +4,24 @@ import { UserContext } from "../Context";
 
 function ImpacterFeed({ posts }) {
     const user = useContext(UserContext)
-    const [events, setEvents] = useState([])
-    // const [impacterEvents, setImpacterEvents] = useState([])
-    
+    const userId = user.currentUser.id
+    const [impacterEvents, setImpacterEvents] = useState([])    
+
     useEffect(() => {
-        fetch("/events")
+        fetch("/impacter_events")
         .then(r => r.json())
-        .then((data) => setEvents(data))
+        .then((data) => {
+            setImpacterEvents(data);
+            // console.log(data);
+        })
     }, [])
 
-    useEffect(() => {
-        fetch("/")
-    }, [])
-
-// const myEvents = events.filter((event) => event.impacters)
-// console.log(myEvents)
-
-// const impacterEvents = myEvents.map((event) => {
-//     if (event[0].id === user.currentUser.id) {
-//         return <Typography key={event.id}>{event.name}</Typography>
-//     } else {
-//         return <Typography key={event.id}>You have no events</Typography>
-//     }
-// })
+    const myEvents = impacterEvents.filter((event) => (event.impacter_id === userId))
+    const eventDisplay = myEvents.map((event) => (
+        event.event_name
+    ))
+    console.log(eventDisplay)
+ 
     
 
   return (
@@ -47,7 +42,7 @@ function ImpacterFeed({ posts }) {
       <Grid item xs={1} sm={3} md={6}>
             <Grid>
                <h4>Events</h4> 
-                {/* {impacterEvents} */}
+                {/* {myEvents} */}
             </Grid>
             <Grid>
                 <h4>Hello</h4>
