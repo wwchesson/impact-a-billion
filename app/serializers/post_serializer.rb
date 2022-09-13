@@ -1,3 +1,3 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :image, :likes, :comments, :user_id, :event_id, :caption
+  attributes :id, :image, :likes, :comments, :impacter_id, :event_id, :caption
 end

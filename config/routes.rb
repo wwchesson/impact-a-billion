@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   
-  get "/userevents/:id", to: "impacters#events"
+  get "/impacterevents/:id", to: "impacters#events"
+  get "/impacteractivities/:id", to: "impacters#activities"
 
   resources :posts
   resources :users
