@@ -5,11 +5,11 @@ function UserRequests({ requests }) {
 
   const approved = requests.map((request) => {
     if (request.approved === "pending") {
-      return <Typography> <strong>Status:</strong> Still pending</Typography>;
+      return <Typography key={request.id}> <strong>Status:</strong> Still pending</Typography>;
     } else if (request.approved === "approved") {
-      return <Typography> <strong>Status:</strong> Approved! </Typography>;
+      return <Typography key={request.id}> <strong>Status:</strong> Approved! </Typography>;
     } else {
-      return <Typography> <strong>Status:</strong> Sorry this request was denied </Typography>;
+      return <Typography key={request.id}> <strong>Status:</strong> Sorry this request was denied </Typography>;
     }
   });
 

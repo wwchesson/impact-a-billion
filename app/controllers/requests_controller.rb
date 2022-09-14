@@ -27,7 +27,9 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1
   def update
     if @request.update(request_params)
-      render json: @request
+      event_params = {name: @request.name, description: @request.description}
+      new_event = Event.create(event_params)
+      render json: new_event
     else
       render json: @request.errors, status: :unprocessable_entity
     end
