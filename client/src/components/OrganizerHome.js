@@ -5,7 +5,7 @@ import AllEvents from "./AllEvents"
 
 function OrganizerHome() {
   const [showRequests, setShowRequests] = useState(false)
-  const [showEvents, setShowEvents] = useState([])
+  const [showEvents, setShowEvents] = useState(false)
   const [events, setEvents] = useState([])
 
 useEffect(() => {
@@ -30,10 +30,10 @@ useEffect(() => {
       <Box sx={{ flexGrow: 1 }}>
         <Card>
           <Button onClick={() => setShowRequests(!showRequests)}>View Requests</Button>
-          {showRequests ? <AllRequests setEvents={setEvents}/> : null}
+          {showRequests ? <AllRequests setEvents={setEvents} events={events}/> : null}
         </Card>
         <Card>
-          <Button>View Events</Button>
+          <Button onClick={() => setShowEvents(!showEvents)}>View Events</Button>
           {showEvents ? <AllEvents events={events}/> : null}
         </Card>
         <Card>

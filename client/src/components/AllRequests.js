@@ -9,11 +9,11 @@ import {
   Button,
   Grid,
 } from "@mui/material";
-import {UserContext} from "../Context"
+import { UserContext } from "../Context";
 
-function AllRequests({setEvents}) {
-    const user = useContext(UserContext);
-    const organizer_id = user.currentUser.id
+function AllRequests({ setEvents, events }) {
+  const user = useContext(UserContext);
+  const organizer_id = user.currentUser.id;
   const [allRequests, setAllRequests] = useState([]);
 
   useEffect(() => {
@@ -22,36 +22,41 @@ function AllRequests({setEvents}) {
       .then((data) => setAllRequests(data));
   }, []);
 
-
-
-function handleApproveClick(id) {
+  function handleApproveClick(id) {
     fetch(`/requests/${id}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({request: {approved: "approved", organizer_id: organizer_id }})
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        request: { approved: "approved", organizer_id: organizer_id },
+      }),
     })
-    .then((r) => r.json())
-    .then((eventObj) => {
-    })
-}
+      .then((r) => r.json())
+      .then((eventObj) => {
+        fetch(`/requests/${id}`, {
+          method: "DELETE",
+        });
+        setAllRequests(allRequests.filter((request) => request.id !== id));
+        setEvents([...events, eventObj]);
+      });
+  }
 
-// function eventPost(eventObj) {
-//     fetch("/events", {
-//         method: "POST",
-//         headers: { 
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({eventObj})
-//     })
-//     .then((r) => r.json())
-//     .then((data) => {
-//         console.log(data);
-//         setEvents(data)
+  // function eventPost(eventObj) {
+  //     fetch("/events", {
+  //         method: "POST",
+  //         headers: {
+  //             "Content-Type": "application/json"
+  //         },
+  //         body: JSON.stringify({eventObj})
+  //     })
+  //     .then((r) => r.json())
+  //     .then((data) => {
+  //         console.log(data);
+  //         setEvents(data)
 
-//     })
-// }
+  //     })
+  // }
 
   return (
     <Container maxWidth="md">
@@ -75,7 +80,9 @@ function handleApproveClick(id) {
                 <br />
                 <strong>Impacter:</strong> {request.user_name_for_request}
                 <br />
-                <Button onClick={() => handleApproveClick(request.id)}>Approve</Button>
+                <Button onClick={() => handleApproveClick(request.id)}>
+                  Approve
+                </Button>
                 <Button>Deny</Button>
               </CardContent>
             </Card>
