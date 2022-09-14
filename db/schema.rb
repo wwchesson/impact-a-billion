@@ -78,19 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_191204) do
     t.integer "approved"
   end
 
-  # create_table "events", force: :cascade do |t|
-  #   t.string "name"
-  #   t.string "description"
-  #   t.integer "location"
-  #   t.string "category"
-  #   t.boolean "completed"
-  #   t.datetime "date"
-  #   t.datetime "created_at", null: false
-  #   t.datetime "updated_at", null: false
-  #   t.integer "organizer_id"
-  # end
-
-
+  
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"

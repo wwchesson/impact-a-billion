@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Typography, Card, Button, Grid, Box } from "@mui/material";
 import AllRequests from "./AllRequests"
+import AllEvents from "./AllEvents"
 
 function OrganizerHome() {
-  const [orgRequest, setOrgRequest] = useState({});
   const [showRequests, setShowRequests] = useState(false)
+  const [showEvents, setShowEvents] = useState([])
   const [events, setEvents] = useState([])
 
 useEffect(() => {
-    
+    fetch("/events")
+    .then(r => r.json())
+    .then((data) => {
+        console.log(data);
+        setEvents(data)
+    })
 }, [])
 
   return (
@@ -24,10 +30,11 @@ useEffect(() => {
       <Box sx={{ flexGrow: 1 }}>
         <Card>
           <Button onClick={() => setShowRequests(!showRequests)}>View Requests</Button>
-          {showRequests ? <AllRequests /> : null}
+          {showRequests ? <AllRequests setEvents={setEvents}/> : null}
         </Card>
         <Card>
           <Button>View Events</Button>
+          {showEvents ? <AllEvents events={events}/> : null}
         </Card>
         <Card>
           <Button>Create Carescape</Button>

@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import {UserContext} from "../Context"
 
-function AllRequests() {
+function AllRequests({setEvents}) {
     const user = useContext(UserContext);
     const organizer_id = user.currentUser.id
   const [allRequests, setAllRequests] = useState([]);
@@ -22,19 +22,7 @@ function AllRequests() {
       .then((data) => setAllRequests(data));
   }, []);
 
-//   useEffect(() => {
-//     fetch("/requests/2", {
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ request: { approved: "approved" } }),
-//     })
-//       .then((r) => r.json())
-//       .then((data) => {
-//         console.log(data);
-//       });
-//   }, []);
+
 
 function handleApproveClick(id) {
     fetch(`/requests/${id}`, {
@@ -46,24 +34,24 @@ function handleApproveClick(id) {
     })
     .then((r) => r.json())
     .then((eventObj) => {
-
     })
 }
 
-function eventPost(eventObj) {
-    fetch("/events", {
-        method: "POST",
-        headers: { 
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({eventObj})
-    })
-    .then((r) => r.json())
-    .then((data) => {
-        console.log(data);
+// function eventPost(eventObj) {
+//     fetch("/events", {
+//         method: "POST",
+//         headers: { 
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify({eventObj})
+//     })
+//     .then((r) => r.json())
+//     .then((data) => {
+//         console.log(data);
+//         setEvents(data)
 
-    })
-}
+//     })
+// }
 
   return (
     <Container maxWidth="md">
@@ -87,7 +75,7 @@ function eventPost(eventObj) {
                 <br />
                 <strong>Impacter:</strong> {request.user_name_for_request}
                 <br />
-                {/* <Button onClick={(id) => }>Approve</Button> */}
+                <Button onClick={() => handleApproveClick(request.id)}>Approve</Button>
                 <Button>Deny</Button>
               </CardContent>
             </Card>
