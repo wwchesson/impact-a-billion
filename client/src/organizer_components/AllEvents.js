@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import EventCard from "./EventCard";
 
-function AllEvents({ events, pastEvents, setPastEvents }) {
+function AllEvents({ events, setEvents, pastEvents, setPastEvents }) {
   return (
     <Container maxWidth="md">
       <Grid container spacing={4}>
@@ -19,6 +19,8 @@ function AllEvents({ events, pastEvents, setPastEvents }) {
           <EventCard
             key={event.id}
             event={event}
+            events={events}
+            setEvents={setEvents}
             setPastEvents={setPastEvents}
             pastEvents={pastEvents}
           />
