@@ -20,7 +20,7 @@ function AllEvents({events}) {
             <Card>
               <CardMedia
                 component="img"
-                image={event.images}
+                image={event.image}
                 height="150"
               ></CardMedia>
               <CardContent>

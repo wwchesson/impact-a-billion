@@ -42,22 +42,6 @@ function AllRequests({ setEvents, events }) {
       });
   }
 
-  // function eventPost(eventObj) {
-  //     fetch("/events", {
-  //         method: "POST",
-  //         headers: {
-  //             "Content-Type": "application/json"
-  //         },
-  //         body: JSON.stringify({eventObj})
-  //     })
-  //     .then((r) => r.json())
-  //     .then((data) => {
-  //         console.log(data);
-  //         setEvents(data)
-
-  //     })
-  // }
-
   return (
     <Container maxWidth="md">
       <Grid container spacing={4}>
@@ -66,7 +50,7 @@ function AllRequests({ setEvents, events }) {
             <Card>
               <CardMedia
                 component="img"
-                image={request.images}
+                image={request.image}
                 height="150"
               ></CardMedia>
               <CardContent>

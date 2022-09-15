@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Typography, Card, Button, Grid, Box } from "@mui/material";
 import AllRequests from "./AllRequests"
 import AllEvents from "./AllEvents"
+import AllImpacters from "./AllImpacters"
 
 function OrganizerHome() {
   const [showRequests, setShowRequests] = useState(false)
   const [showEvents, setShowEvents] = useState(false)
+  const [showImpacters, setShowImpacters] = useState(false)
   const [events, setEvents] = useState([])
 
 useEffect(() => {
     fetch("/events")
     .then(r => r.json())
     .then((data) => {
-        console.log(data);
+        // console.log(data);
         setEvents(data)
     })
 }, [])
@@ -35,6 +37,10 @@ useEffect(() => {
         <Card>
           <Button onClick={() => setShowEvents(!showEvents)}>View Events</Button>
           {showEvents ? <AllEvents events={events}/> : null}
+        </Card>
+        <Card>
+          <Button onClick={() => setShowImpacters(!showImpacters)}>View Impacters</Button>
+          {showImpacters ? <AllImpacters event={events}/> : null}
         </Card>
         <Card>
           <Button>Create Carescape</Button>

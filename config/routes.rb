@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   
   get "/impacterevents/:id", to: "impacters#events"
-  # get "/useractivities/:id", to: "impacters#activities"
+  get "/impacters", to: "impacters#index"
 
   resources :posts
   resources :users

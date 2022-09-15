@@ -27,7 +27,7 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1
   def update
     if @request.update(request_params)
-      event_params = {name: @request.name, description: @request.description, category: @request.category, completed: false, organizer_id: @request.organizer_id }
+      event_params = {name: @request.name, description: @request.description, category: @request.category, completed: false, organizer_id: @request.organizer_id, image: @request.image }
       new_event = Event.create!(event_params)
       render json: new_event, status: :created
     else

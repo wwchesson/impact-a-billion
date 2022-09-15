@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../Context";
 import ImpacterFeed from "./ImpacterFeed";
-import OrganizerHome from "./OrganizerHome";
+import OrganizerHome from "../organizer_components/OrganizerHome";
 
 function Home({ posts }) {
   const user = useContext(UserContext);
