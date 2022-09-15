@@ -28,11 +28,15 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   def update
     if @event.update(event_params)
-      render json: @event
+      past_event_params = {name: @event.name, description: @event.description, category: @event.category, image: @event.image, organizer_id: @event.organizer_id, date: @event.date}
+      new_past_event = PastEvent.create(past_event_params)
+      render json: new_past_event, status: :created
     else
       render json: @event.errors, status: :unprocessable_entity
     end
   end
+
+  # params.permit(:name, :description, :location, :category, :date, :organizer_id, :image)
 
   # DELETE /events/1
   def destroy

@@ -33,6 +33,7 @@ class PastEventsController < ApplicationController
     end
   end
 
+
   # DELETE /past_events/1
   def destroy
     @past_event.destroy
@@ -46,6 +47,6 @@ class PastEventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def past_event_params
-      params.require(:past_event).permit(:name, :description, :location, :category, :date, :organizer_id, :image)
+      params.permit(:name, :description, :location, :category, :date, :organizer_id, :image)
     end
 end

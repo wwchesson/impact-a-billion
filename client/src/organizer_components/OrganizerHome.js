@@ -3,14 +3,15 @@ import { Typography, Card, Button, Grid, Box } from "@mui/material";
 import AllRequests from "./AllRequests"
 import AllEvents from "./AllEvents"
 import AllImpacters from "./AllImpacters"
-import Carescapes from "./Carescapes"
+import PastEvents from "./PastEvents"
 
 function OrganizerHome() {
   const [showRequests, setShowRequests] = useState(false)
   const [showEvents, setShowEvents] = useState(false)
   const [showImpacters, setShowImpacters] = useState(false)
-  const [showCarescapes, setShowCarescapes] = useState(false)
+  const [showPastEvents, setShowPastEvents] = useState(false)
   const [events, setEvents] = useState([])
+  const [pastEvents, setPastEvents] = useState([])
 
 useEffect(() => {
     fetch("/events")
@@ -19,6 +20,12 @@ useEffect(() => {
         // console.log(data);
         setEvents(data)
     })
+}, [])
+
+useEffect(() => {
+  fetch("/past_events")
+  .then(r => r.json())
+  .then((data) => setPastEvents(data))
 }, [])
 
   return (
@@ -38,15 +45,15 @@ useEffect(() => {
         </Card>
         <Card>
           <Button onClick={() => setShowEvents(!showEvents)}>View Events</Button>
-          {showEvents ? <AllEvents events={events}/> : null}
+          {showEvents ? <AllEvents events={events} setPastEvents={setPastEvents} pastEvents={pastEvents}/> : null}
         </Card>
         <Card>
           <Button onClick={() => setShowImpacters(!showImpacters)}>View Impacters</Button>
           {showImpacters ? <AllImpacters event={events}/> : null}
         </Card>
         <Card>
-          <Button onClick={() => setShowCarescapes(!showCarescapes)}>View Carescapes</Button>
-          {showCarescapes ? <Carescapes /> : null}
+          <Button onClick={() => setShowPastEvents(!showPastEvents)}>View Past Events</Button>
+          {showPastEvents ? <PastEvents pastEvents={pastEvents}/> : null}
         </Card>
       </Box>
     </div>
