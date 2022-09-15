@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Typography, Card, Button, Grid, Box } from "@mui/material";
 import AllRequests from "./AllRequests";
 import AllEvents from "./AllEvents";
 import AllImpacters from "./AllImpacters";
 import PastEvents from "./PastEvents";
+import { UserContext } from "../Context";
 
 function OrganizerHome() {
+  const user = useContext(UserContext);
+  const userId = user.currentUser.id;
   const [showRequests, setShowRequests] = useState(false);
   const [showEvents, setShowEvents] = useState(false);
   const [showImpacters, setShowImpacters] = useState(false);
@@ -34,7 +37,7 @@ function OrganizerHome() {
         padding="10px"
         justifyContent="center"
         display="flex"
-        variant="h3"
+        variant="h4"
       >
         What would you like to do?
       </Typography>
@@ -49,11 +52,11 @@ function OrganizerHome() {
         </Card>
         <Card>
           <Button onClick={() => setShowEvents(!showEvents)}>
-            View Events
+            View Your Events
           </Button>
           {showEvents ? (
             <AllEvents
-              events={events}
+              events={events.filter((event) => event.organizer_id === userId)}
               setEvents={setEvents}
               setPastEvents={setPastEvents}
               pastEvents={pastEvents}
@@ -68,9 +71,15 @@ function OrganizerHome() {
         </Card>
         <Card>
           <Button onClick={() => setShowPastEvents(!showPastEvents)}>
-            View Past Events
+            View Your Past Events
           </Button>
-          {showPastEvents ? <PastEvents pastEvents={pastEvents} /> : null}
+          {showPastEvents ? (
+            <PastEvents
+              pastEvents={pastEvents.filter(
+                (pastEvent) => pastEvent.organizer_id === userId
+              )}
+            />
+          ) : null}
         </Card>
       </Box>
     </div>
