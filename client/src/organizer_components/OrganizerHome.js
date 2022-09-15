@@ -3,11 +3,13 @@ import { Typography, Card, Button, Grid, Box } from "@mui/material";
 import AllRequests from "./AllRequests"
 import AllEvents from "./AllEvents"
 import AllImpacters from "./AllImpacters"
+import Carescapes from "./Carescapes"
 
 function OrganizerHome() {
   const [showRequests, setShowRequests] = useState(false)
   const [showEvents, setShowEvents] = useState(false)
   const [showImpacters, setShowImpacters] = useState(false)
+  const [showCarescapes, setShowCarescapes] = useState(false)
   const [events, setEvents] = useState([])
 
 useEffect(() => {
@@ -43,7 +45,8 @@ useEffect(() => {
           {showImpacters ? <AllImpacters event={events}/> : null}
         </Card>
         <Card>
-          <Button>Create Carescape</Button>
+          <Button onClick={() => setShowCarescapes(!showCarescapes)}>Create Carescape</Button>
+          {showCarescapes ? <Carescapes /> : null}
         </Card>
       </Box>
     </div>
