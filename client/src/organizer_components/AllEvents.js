@@ -9,36 +9,16 @@ import {
     Button,
     Grid,
   } from "@mui/material";
+  import EventCard from "./EventCard"
 
 function AllEvents({events}) {
 
     return (
         <Container maxWidth="md">
       <Grid container spacing={4}>
-        {events.map((event) => (
-          <Grid item key={event.id} xs={12} sm={6} md={4}>
-            <Card>
-              <CardMedia
-                component="img"
-                image={event.image}
-                height="150"
-              ></CardMedia>
-              <CardContent>
-                <strong>Name:</strong> {event.name}
-                <br />
-                <strong>Description:</strong> {event.description}
-                <br />
-                <strong>Hours Requested:</strong> {event.hours_requested}
-                <br />
-                <strong>Location:</strong> {event.location}
-                <br />
-                {/* <strong>Impacter:</strong> {request.user_name_for_request} */}
-                <br />
-
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
+        {events.map((event) => (<EventCard key={event.id} event={event}/>     ))}
+           
+ 
       </Grid>
     </Container>
     )

@@ -10,16 +10,23 @@ import {
   Avatar,
   Grid,
 } from "@mui/material";
-import EventAssignment from "./EventAssignment";
 
-function AllImpacters({events}) {
+
+function AllImpacters({ events }) {
+  const [showEvents, setShowEvents] = useState(false);
   const [allImpacters, setAllImpacters] = useState([]);
-  const [showEventsAssign, setShowEventsAssign] = useState(false)
+  const [impacterEvents, setImpacterEvents] = useState([]);
 
   useEffect(() => {
     fetch("/impacters")
       .then((r) => r.json())
       .then((data) => setAllImpacters(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("/impacter_events")
+      .then((r) => r.json())
+      .then((data) => setImpacterEvents(data));
   }, []);
 
   return (
@@ -52,8 +59,7 @@ function AllImpacters({events}) {
                 <br />
                 <strong>Travel Radius:</strong> {impacter.travel_radius} miles
                 <br />
-                <Button onClick={() => setShowEventsAssign(!showEventsAssign)}>Assign to event</Button>
-                {showEventsAssign ? <EventAssignment /> : null}
+
               </CardContent>
             </Card>
           </Grid>

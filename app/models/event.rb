@@ -5,6 +5,9 @@ class Event < ApplicationRecord
     belongs_to :organizer
     has_one :carescape
 
+    def impacter_associated_with_events
+        self.impacters.pluck(:name)
+    end
     
 
 end
