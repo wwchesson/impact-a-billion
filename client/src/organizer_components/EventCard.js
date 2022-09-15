@@ -18,6 +18,8 @@ function EventCard({ event }) {
           <br />
           <strong>Location:</strong> {event.location}
           <br />
+          <Button>Mark as complete</Button>
+          <br />
           <Button onClick={() => setShowEventImpacters(!showEventImpacters)}>View Impacters for this event</Button>
           {showEventImpacters ? <EventImpacters key={event.id} eventImpacters={event.impacter_associated_with_events}/> : null}
           <br />

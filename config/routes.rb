@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :past_events
   resources :carescapes
   resources :events
   resources :requests

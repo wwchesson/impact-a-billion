@@ -45,7 +45,7 @@ useEffect(() => {
           {showImpacters ? <AllImpacters event={events}/> : null}
         </Card>
         <Card>
-          <Button onClick={() => setShowCarescapes(!showCarescapes)}>Create Carescape</Button>
+          <Button onClick={() => setShowCarescapes(!showCarescapes)}>View Carescapes</Button>
           {showCarescapes ? <Carescapes /> : null}
         </Card>
       </Box>
