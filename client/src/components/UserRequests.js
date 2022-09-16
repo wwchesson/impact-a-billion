@@ -29,7 +29,19 @@ function UserRequests({ requests }) {
           ></CardMedia>
           <CardContent>
             <Typography>
-              <strong>Description:</strong> {request.description}{" "}
+              <strong>Description:</strong> {request.description}
+            </Typography>
+            <br />
+            <Typography>
+              <strong>Category: </strong> {request.category}
+            </Typography>
+            <br />
+            <Typography>
+              <strong>Hours Requested:</strong> {request.hours_requested} hours {request.frequency.toLowerCase()}
+            </Typography>
+            <br />
+            <Typography>
+              <strong>Volunteers Needed: </strong> {request.volunteers_needed}
             </Typography>
             <br />
             {approved}

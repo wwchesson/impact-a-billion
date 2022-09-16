@@ -22,11 +22,6 @@ function ProfileCard({user}) {
       <Typography id="user-info" variant="h5">
         Current Zip Code: {zip}
       </Typography>
-      <Button>
-        <Typography id="user-info" variant="h5">
-          Become an Organizer
-        </Typography>
-      </Button>
     </div>
   );
 }
