@@ -26,7 +26,7 @@ function UserProfile() {
                 </Box>
                 <Typography variant="h3" padding="10px" justifyContent="center" display="flex">{name}</Typography>
                 <br></br>
-                <Card sx={{borderRadius: "16px",  border: 1, borderColor: "grey.500", }} id="user-card">
+                <Card sx={{borderRadius: "16px",  border: 1, borderColor: "grey.500", display: "flex" }} id="user-card">
                     <CardContent  >
                         <Typography id="user-info"  variant="h5">
                             Skills: {skills}  <IconButton id="edit-icon"><EditIcon ></EditIcon>  </IconButton>              

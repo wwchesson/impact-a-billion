@@ -78,7 +78,7 @@ function ImpacterFeed({ posts }) {
               <Typography>
                 <strong>Carescapes</strong>
               </Typography>
-              {carescapes.map((art) => (
+              {carescapes.slice(0, 3).map((art) => (
                 <Card key={art.id}>
                   <CardContent>
                     <Typography>{art.event_name}</Typography>

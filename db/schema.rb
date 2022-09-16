@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_16_173242) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_16_191615) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_173242) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "location"
+    t.string "location"
     t.string "category"
     t.boolean "completed"
     t.string "date"
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_173242) do
   create_table "past_events", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "location"
+    t.string "location"
     t.string "category"
     t.string "date"
     t.integer "organizer_id"
@@ -73,7 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_173242) do
     t.integer "likes"
     t.string "comments"
     t.integer "user_id"
-    t.integer "event_id"
+    t.integer "past_event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "caption"
@@ -89,7 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_173242) do
     t.integer "organizer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "location"
+    t.string "location"
     t.integer "approved"
     t.string "frequency"
     t.integer "volunteers_needed"

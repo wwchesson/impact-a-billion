@@ -21,11 +21,12 @@ code {
 
 #user-card{
   
-  width: 30em;
-  height: 20em;
+  width: 35em;
+  /* height: 20em; */
   justify-content: center;
   margin: auto;
   margin-bottom: 2em;
+  display: flex;
   
 }
 
