@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_15_201132) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_16_173242) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,11 +30,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_15_201132) do
     t.integer "location"
     t.string "category"
     t.boolean "completed"
-    t.datetime "date"
+    t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "organizer_id"
     t.string "image"
+    t.integer "hours_needed"
+    t.string "frequency"
   end
 
   create_table "impacter_events", force: :cascade do |t|
@@ -59,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_15_201132) do
     t.string "description"
     t.integer "location"
     t.string "category"
-    t.datetime "date"
+    t.string "date"
     t.integer "organizer_id"
     t.string "image"
     t.datetime "created_at", null: false
@@ -87,8 +89,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_15_201132) do
     t.integer "organizer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "zip"
+    t.integer "location"
     t.integer "approved"
+    t.string "frequency"
+    t.integer "volunteers_needed"
   end
 
   create_table "users", force: :cascade do |t|
