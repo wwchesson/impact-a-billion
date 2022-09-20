@@ -42,7 +42,7 @@ function ImpacterFeed({ posts }) {
   return (
     <div>
       {/* <img alt="logo" src={impactLogo}/> */}
-      <Typography justifyContent="center" display="flex" variant="h3">change a life, change your own</Typography>
+      <Typography justifyContent="center" display="flex" variant="h3">impact a life, impact the world</Typography>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={3} sm={5} md={6}>

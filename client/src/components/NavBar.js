@@ -26,7 +26,7 @@ function NavBar() {
         position="static"
         style={{
           background: "#42234e",
-          height: "4em",
+          height: "5em",
           margin: "0em 0em 1em 0em",
         }}
       >
@@ -34,33 +34,39 @@ function NavBar() {
           <img alt="logo" src={impactLogo} />
           <Link
             id="nav-link"
-            style={{ color: "white", margin: "5em 5em", align: "right" }}
+            style={{ color: "white", margin: "4em 4em", align: "right" }}
             to={"/home"}
           >
             Home
           </Link>
           <Link
             id="nav-link"
-            style={{ color: "white", margin: "5em 5em", align: "right" }}
+            style={{ color: "white", margin: "4em 4em", align: "right" }}
+            to={"/events"}
+          >Events
+          </Link>
+          <Link
+            id="nav-link"
+            style={{ color: "white", margin: "4em 4em", align: "right" }}
             to={profile}
           >
             Profile{" "}
           </Link>
           <Link
             id="nav-link"
-            style={{ color: "white", margin: "5em 5em", align: "right" }}
+            style={{ color: "white", margin: "4em 4em", align: "right" }}
             to={posts}
           >
             Posts
           </Link>
           <Link
             id="nav-link"
-            style={{ color: "white", margin: "5em 5em", align: "right" }}
+            style={{ color: "white", margin: "4em 4em", align: "right" }}
             to={requests}
           >
             Requests
           </Link>
-          <Button onClick={handleLogoutClick}> Logout </Button>
+          <Button style={{ color: "white", margin: "4em 4em", align: "right" }} onClick={handleLogoutClick}> Logout </Button>
         </Toolbar>
       </AppBar>
     </div>

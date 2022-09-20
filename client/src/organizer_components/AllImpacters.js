@@ -11,7 +11,6 @@ import {
   Grid,
 } from "@mui/material";
 
-
 function AllImpacters({ events }) {
   const [showEvents, setShowEvents] = useState(false);
   const [allImpacters, setAllImpacters] = useState([]);
@@ -23,11 +22,11 @@ function AllImpacters({ events }) {
       .then((data) => setAllImpacters(data));
   }, []);
 
-//   useEffect(() => {
-//     fetch("/impacter_events")
-//       .then((r) => r.json())
-//       .then((data) => setImpacterEvents(data));
-//   }, []);
+  //   useEffect(() => {
+  //     fetch("/impacter_events")
+  //       .then((r) => r.json())
+  //       .then((data) => setImpacterEvents(data));
+  //   }, []);
 
   return (
     <Container maxWidth="md">
@@ -49,11 +48,21 @@ function AllImpacters({ events }) {
               </Box>
 
               <CardContent sx={{}}>
-                <Typography><strong>Name:</strong> {impacter.name}</Typography>
-                <Typography><strong>Skills:</strong> {impacter.skills}</Typography>
-                <Typography><strong>Availability:</strong> {impacter.availability}</Typography>
-                <Typography><strong>Zip Code:</strong> {impacter.zip}</Typography>
-                <Typography><strong>Travel Radius:</strong> {impacter.travel_radius} miles</Typography>
+                <Typography>
+                  <strong>Name:</strong> {impacter.name}
+                </Typography>
+                <Typography>
+                  <strong>Skills:</strong> {impacter.skills}
+                </Typography>
+                <Typography>
+                  <strong>Availability:</strong> {impacter.availability}
+                </Typography>
+                <Typography>
+                  <strong>Zip Code:</strong> {impacter.zip}
+                </Typography>
+                <Typography>
+                  <strong>Travel Radius:</strong> {impacter.travel_radius} miles
+                </Typography>
               </CardContent>
             </Card>
           </Grid>
