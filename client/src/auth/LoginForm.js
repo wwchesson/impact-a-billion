@@ -19,7 +19,7 @@ function LoginForm({ onLogin }) {
       }).then((r) => {
         if (r.ok) {
           r.json().then((user) => {
-            console.log(user);
+            // console.log(user);
             onLogin(user);
             
           });
