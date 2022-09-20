@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Card,
   CardContent,
@@ -10,11 +10,27 @@ import {
 } from "@mui/material";
 import { UserContext } from "../Context";
 
-function EventCard({ event }) {
+function EventCard({ event, events, setEvents }) {
   const user = useContext(UserContext);
   const userId = user.currentUser.id;
+  const userName = user.currentUser.name;
 
-  const [signUpMsg, setSignUpMsg] = useState(false);
+  // const [signUpMsg, setSignUpMsg] = useState(false)
+
+  const associatedEvent = event.impacter_associated_with_events.find(
+    (name) => name === userName
+  );
+
+  // function checkEventSignUp() {
+  //   impacterEvents.map((impacterEvent) => {
+  //     if (event.id === impacterEvent.event_id) {
+  //     if(impacterEvents.impacter_id === userId) {
+  //       return <Typography>You're signed up!</Typography>
+  //     } else {
+  //       return <Button>Sign up</Button>
+  //     }
+  //   }
+  //   })}
 
   function handleEventSignUp(eventId) {
     fetch("/impacter_events", {
@@ -25,7 +41,7 @@ function EventCard({ event }) {
       body: JSON.stringify({ event_id: eventId, impacter_id: userId }),
     })
       .then((r) => r.json())
-      .then(setSignUpMsg(true));
+      .then((data) => setEvents(data));
   }
 
   return (
@@ -44,8 +60,10 @@ function EventCard({ event }) {
           <Typography>
             {event.category} - {event.location} - {event.date}
           </Typography>
+          {/* {checkEventSignUp()} */}
         </CardContent>
-        {signUpMsg ? (
+
+        {associatedEvent ? (
           <Typography>You're signed up!</Typography>
         ) : (
           <Button onClick={() => handleEventSignUp(event.id)}>Sign up</Button>

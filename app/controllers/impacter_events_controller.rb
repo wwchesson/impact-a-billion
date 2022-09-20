@@ -13,9 +13,10 @@ class ImpacterEventsController < ApplicationController
 
     def create
         @impacterEvent = ImpacterEvent.new(impacterevent_params)
-
+        
         if @impacterEvent.save
-            render json: @impacterEvent, status: :created
+            events = Event.all
+            render json: events
         else
             render json: @impacterEvent.errors, status: :unprocessable_entity
         end

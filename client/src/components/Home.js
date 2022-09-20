@@ -11,7 +11,7 @@ function Home({ posts }) {
     if (type === "Organizer") {
       return <OrganizerHome></OrganizerHome>;
     } else {
-      return <ImpacterFeed posts={posts}></ImpacterFeed>;
+      return <ImpacterFeed posts={posts} ></ImpacterFeed>;
     }
   };
 

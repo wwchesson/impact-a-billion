@@ -13,6 +13,7 @@ import BrowseEvents from "./BrowseEvents";
 function App() {
   const [posts, setPosts] = useState([]);
   const [requests, setRequests] = useState([]);
+  const [impacterEvents, setImpacterEvents] = useState([]);
 
   useEffect(() => {
     fetch("/posts")
@@ -31,12 +32,24 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    fetch("/impacter_events")
+      .then((r) => r.json())
+      .then((data) => {
+        setImpacterEvents(data);
+        // console.log(data);
+      });
+  }, []);
+
   return (
     <div className="App">
       <NavBar />
       <Routes>
         <Route path="/" element={<LoginPage />}></Route>
-        <Route path="/home" element={<Home posts={posts} />}></Route>
+        <Route
+          path="/home"
+          element={<Home posts={posts} impacterEvents={impacterEvents} />}
+        ></Route>
         <Route path="/users/:id" element={<UserProfile />}></Route>
         <Route path="/posts/:id" element={<Posts posts={posts} />}></Route>
         <Route
@@ -53,11 +66,10 @@ function App() {
             <RequestForm requests={requests} setRequests={setRequests} />
           }
         ></Route>
-        <Route 
+        <Route
           path="/events"
-          element={<BrowseEvents />}
-          >
-        </Route>
+          element={<BrowseEvents  />}
+        ></Route>
       </Routes>
     </div>
   );
