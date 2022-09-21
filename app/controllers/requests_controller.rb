@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: %i[ show update destroy ]
+  before_action :set_request, only: %i[ show update destroy userpatch ]
 
   # GET /requests
   def index
@@ -23,6 +23,16 @@ class RequestsController < ApplicationController
       render json: @request.errors, status: :unprocessable_entity
     end
   end
+
+  # patch "/requestpatch/:id", to: "requests#userpatch"
+  def userpatch
+    if @request.update(request_params)
+      render json: @request
+    else 
+      render json: @request.errors, status: :unprocessable_entity
+    end
+  end
+
 
   # PATCH/PUT /requests/1
   def update
@@ -48,6 +58,6 @@ class RequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def request_params
-      params.require(:request).permit(:name, :description, :images, :approved, :category, :hours_requested, :user_id, :organizer_id)
+      params.require(:request).permit(:name, :description, :image, :approved, :location, :category, :hours_requested, :user_id, :organizer_id, :frequency, :volunteers_needed)
     end
 end

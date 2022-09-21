@@ -7,6 +7,7 @@ function EditRequests({
   setRequests,
   showEditRequest,
   setShowEditRequest,
+  requests
 }) {
   const {
     id,
@@ -36,8 +37,30 @@ function EditRequests({
     });
   }
 
+  function handleUpdateRequest(updatedRequest) {
+    const updatedRequests = requests.map((request) => request.id === updatedRequest.id ? updatedRequest : request)
+    setRequests(updatedRequests)
+}
+
+  function handleEditRequestSubmit(e) {
+    e.preventDefault();
+    setErrors([]);
+    fetch(`/requestpatch/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editRequestFormData)
+    })
+    .then(r => r.json())
+    .then((data) => {
+        handleUpdateRequest(data);
+        setShowEditRequest(!showEditRequest)
+    })
+  }
+
   return (
-    <form>
+    <form onSubmit={handleEditRequestSubmit}>
       <Box
         sx={{ "& .MuiTextField-root": { m: 2, width: "25ch" } }}
         noValidate
@@ -52,16 +75,7 @@ function EditRequests({
           onChange={handleEditRequestFormChange}
         />
         <br />
-        <TextField
-          id="outlined-image-input"
-          label="Image"
-          autoComplete="off"
-          name="Image"
-          value={editRequestFormData.image}
-          onChange={handleEditRequestFormChange}
-        />
-        <br />
-        <TextField
+          <TextField
           id="outlined-description-input"
           label="Description"
           autoComplete="off"
@@ -71,20 +85,20 @@ function EditRequests({
         />
         <br />
         <TextField
-          id="outlined-category-input"
-          label="Category"
+          id="outlined-image-input"
+          label="Image"
           autoComplete="off"
-          name="category"
-          value={editRequestFormData.category}
+          name="Image"
+          value={editRequestFormData.image}
           onChange={handleEditRequestFormChange}
-        />
+        />   
         <br />
         <TextField
-          id="outlined-hrs-input"
-          label="Hours Requested"
+          id="outlined-volunteer-input"
+          label="Volunteers Needed"
           autoComplete="off"
-          name="hours_requested"
-          value={editRequestFormData.hours_requested}
+          name="volunteers_needed"
+          value={editRequestFormData.volunteers_needed}
           onChange={handleEditRequestFormChange}
         />
         <br />
@@ -124,9 +138,23 @@ function EditRequests({
             </Select>
         </FormControl>
         <br />
+        <FormControl sx={{width: "250px", marginLeft: "15px", marginTop: "15px", marginBottom: "15px"}} >
+            <InputLabel>Frequency</InputLabel>
+            <Select
+                name="frequency"
+                value={editRequestFormData.frequency}
+                onChange={handleEditRequestFormChange}
+            >
+                <MenuItem value={"daily"}>daily</MenuItem>
+                <MenuItem value={"weekly"}>weekly</MenuItem>
+                <MenuItem value={"every two weeks"}>every two weeks</MenuItem>
+                <MenuItem value={"monthly"}>monthly</MenuItem>
+            </Select>
+        </FormControl>
+        <br />
         <Button type="submit">
-          <Typography id="signup-submit" variant="h5">
-            Create Request
+          <Typography variant="h5">
+            Edit Request
           </Typography>
         </Button>
         {errors.map((err) => (

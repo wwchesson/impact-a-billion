@@ -15,6 +15,13 @@ function UserRequests({ requests, setRequests }) {
     }
   });
 
+  function handleRequestDelete(id) {
+    fetch(`/requests/${id}`, {
+      method: "DELETE"
+    })
+    .then(setRequests(requests.filter((request) => request.id !== id)))
+  }
+
   return (
     <div>
       {requests.map((request) => (
@@ -49,8 +56,8 @@ function UserRequests({ requests, setRequests }) {
             {approved}
             <br />
             <Button onClick={() => setShowEditRequest(!showEditRequest)}>Edit</Button>
-            {showEditRequest ? <EditRequests request={request} setRequests={setRequests} showEditRequest={showEditRequest} setShowEditRequest={setShowEditRequest}/>: null}
-            <Button>Delete</Button>
+            {showEditRequest ? <EditRequests request={request} setRequests={setRequests} showEditRequest={showEditRequest} setShowEditRequest={setShowEditRequest} requests={requests}/>: null}
+            <Button onClick={() => handleRequestDelete(request.id)}>Delete</Button>
           </CardContent>
         </Card>
       ))}

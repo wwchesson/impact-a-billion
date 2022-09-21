@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get "/impacterevents/:id", to: "impacters#events"
   get "/impacters", to: "impacters#index"
 
+  patch "/requestpatch/:id", to: "requests#userpatch"
+
   resources :posts
   resources :users
   
