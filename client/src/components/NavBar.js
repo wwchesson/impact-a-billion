@@ -6,11 +6,8 @@ import impactLogo from "../images/impactLogo.jpeg";
 
 function NavBar() {
   const user = useContext(UserContext);
-  // console.log(user)
   const userId = user.currentUser.id;
   const profile = `/users/${userId}`;
-  // const posts = `/posts/${userId}`;
-  // const requests = `/requests/${userId}`;
 
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {

@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { UserContext } from "../Context";
-import impactLogo from "../images/impactLogo.jpeg";
+import RadioButtonCheckedTwoToneIcon from '@mui/icons-material/RadioButtonCheckedTwoTone';
 
 function ImpacterFeed({ posts }) {
   const user = useContext(UserContext);
@@ -41,34 +41,50 @@ function ImpacterFeed({ posts }) {
 
   return (
     <div>
-      {/* <img alt="logo" src={impactLogo}/> */}
-      <Typography justifyContent="center" display="flex" variant="h3">
+      <Typography
+        justifyContent="center"
+        display="flex"
+        variant="h3"
+        padding="20px"
+        marginBottom="30px"
+      >
         impact a life, impact the world
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
-          <Grid item xs={3} sm={5} md={6}>
-            <Typography>
+        <Grid container spacing={{ xs: 4, sm: 8, md: 12 }}>
+          <Grid item xs={2} sm={3} md={5} marginLeft="80px">
+            <Typography
+              justifyContent="center"
+              display="flex"
+              variant="h6"
+              padding="10px"
+            >
               <strong>Stories</strong>
             </Typography>
             {posts.slice(0, 3).map((post) => (
-              <Card key={post.id}>
+              <Card key={post.id} className="impacter-cards">
                 <CardMedia
                   component="img"
                   image={post.image}
                   height="250"
+
                 ></CardMedia>
                 <CardContent>{post.caption}</CardContent>
               </Card>
             ))}
           </Grid>
-          <Grid item xs={1} sm={3} md={6}>
+          <Grid item xs={2} sm={3} md={5}>
             <Grid>
-              <Typography>
+              <Typography
+                justifyContent="center"
+                display="flex"
+                variant="h6"
+                padding="10px"
+              >
                 <strong>Your Events</strong>
               </Typography>
               {myEvents.map((event) => (
-                <Card key={event.id}>
+                <Card key={event.id} className="impacter-cards">
                   <CardContent>
                     <Typography>{event.event_name}</Typography>
                     <Typography>{event.event_date}</Typography>
@@ -77,13 +93,20 @@ function ImpacterFeed({ posts }) {
               ))}
             </Grid>
             <Grid>
-              <Typography>
+              <Typography
+                justifyContent="center"
+                display="flex"
+                variant="h6"
+                padding="10px"
+              >
                 <strong>Carescapes</strong>
               </Typography>
               {carescapes.slice(0, 3).map((art) => (
-                <Card key={art.id}>
+                <Card key={art.id} className="impacter-cards">
                   <CardContent>
-                    <Typography>{art.event_name}</Typography>
+                    <Typography justifyContent="center"
+                display="flex"
+                padding="10px">{art.event_name}</Typography>
                     <CardMedia
                       component="img"
                       image={art.image}
