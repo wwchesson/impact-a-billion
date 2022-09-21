@@ -1,7 +1,9 @@
-import React from "react";
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import React, { useState} from "react";
+import { Card, CardContent, CardMedia, Typography, Button } from "@mui/material";
+import EditRequests from "./EditRequests";
 
-function UserRequests({ requests }) {
+function UserRequests({ requests, setRequests }) {
+  const [showEditRequest, setShowEditRequest] = useState(false)
 
   const approved = requests.map((request) => {
     if (request.approved === "pending") {
@@ -45,6 +47,10 @@ function UserRequests({ requests }) {
             </Typography>
             <br />
             {approved}
+            <br />
+            <Button onClick={() => setShowEditRequest(!showEditRequest)}>Edit</Button>
+            {showEditRequest ? <EditRequests requests={requests} setRequests={setRequests} showEditRequest={showEditRequest} setShowEditRequest={setShowEditRequest}/>: null}
+            <Button>Delete</Button>
           </CardContent>
         </Card>
       ))}

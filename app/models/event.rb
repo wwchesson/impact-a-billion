@@ -4,7 +4,7 @@ class Event < ApplicationRecord
 
     belongs_to :organizer
 
-    validates_uniqueness_of :impacter, scope: :user_id
+    # validates_uniqueness_of :impacter, scope: :user_id
     
 
     def impacter_associated_with_events

@@ -4,7 +4,7 @@ import { Grid, Container, Typography } from "@mui/material";
 import UserRequests from "./UserRequests";
 import { UserContext } from "../Context";
 
-function Requests({ requests }) {
+function Requests({ requests, setRequests }) {
   const user = useContext(UserContext);
 
   return (
@@ -20,6 +20,7 @@ function Requests({ requests }) {
               requests={requests.filter(
                 (request) => (request.user_id === user.currentUser.id)
               )}
+              setRequests={setRequests}
             />
         </Grid>
       </Container>

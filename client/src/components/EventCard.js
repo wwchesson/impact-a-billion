@@ -15,22 +15,10 @@ function EventCard({ event, events, setEvents }) {
   const userId = user.currentUser.id;
   const userName = user.currentUser.name;
 
-  // const [signUpMsg, setSignUpMsg] = useState(false)
 
   const associatedEvent = event.impacter_associated_with_events.find(
     (name) => name === userName
   );
-
-  // function checkEventSignUp() {
-  //   impacterEvents.map((impacterEvent) => {
-  //     if (event.id === impacterEvent.event_id) {
-  //     if(impacterEvents.impacter_id === userId) {
-  //       return <Typography>You're signed up!</Typography>
-  //     } else {
-  //       return <Button>Sign up</Button>
-  //     }
-  //   }
-  //   })}
 
   function handleEventSignUp(eventId) {
     fetch("/impacter_events", {
@@ -60,7 +48,6 @@ function EventCard({ event, events, setEvents }) {
           <Typography>
             {event.category} - {event.location} - {event.date}
           </Typography>
-          {/* {checkEventSignUp()} */}
         </CardContent>
 
         {associatedEvent ? (

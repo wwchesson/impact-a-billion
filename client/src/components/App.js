@@ -58,7 +58,7 @@ function App() {
         ></Route>
         <Route
           path="/requests"
-          element={<Requests requests={requests} />}
+          element={<Requests requests={requests} setRequests={setRequests}/>}
         ></Route>
         <Route
           path="/newrequest"

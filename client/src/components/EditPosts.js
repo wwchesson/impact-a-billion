@@ -7,7 +7,6 @@ import {
   Typography,
   imageListItemClasses,
 } from "@mui/material";
-import { UserContext } from "../Context";
 
 function EditPosts({ setPosts, post, showEditPosts, setShowEditPosts }) {
   const { id, image, caption } = post;
@@ -21,22 +20,6 @@ function EditPosts({ setPosts, post, showEditPosts, setShowEditPosts }) {
     setEditPostFormData({...post, [e.target.name]: e.target.value})
   }
 
-//   function handleProfileFormSubmit(e) {
-//     e.preventDefault();
-//     setErrors([]);
-//     fetch(`/users/${userId}`, {
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(profileFormData),
-//     })
-//       .then((r) => r.json())
-//       .then((data) => {
-//         setSingleUser(data);
-//         setShowEditForm(!showEditForm)
-//       });
-//   }
 
 function handleEditPostSubmit(e) {
     e.preventDefault(); 
