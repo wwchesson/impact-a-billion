@@ -17,7 +17,7 @@ function EditPosts({ setPosts, post, showEditPosts, setShowEditPosts }) {
   })
 
   function handleEditPostFormChange(e) {
-    setEditPostFormData({...post, [e.target.name]: e.target.value})
+    setEditPostFormData({...editPostFormData, [e.target.name]: e.target.value})
   }
 
 

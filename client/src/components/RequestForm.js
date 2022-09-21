@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, TextField, Button, Typography, InputLabel, MenuItem, FormControl } from "@mui/material";
 import { UserContext } from "../Context";
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
 function RequestForm({ requests, setRequests }) {
   //program submit function
@@ -29,9 +29,11 @@ function RequestForm({ requests, setRequests }) {
   const [requestFormData, setRequestFormData] = useState({
     name: "",
     description: "",
-    images: "",
+    image: "",
     category: "",
     hours_requested: "",
+    frequency: "",
+    volunteers_needed: ""
   });
 
   function handleRequestInputChange(e) {
@@ -87,9 +89,19 @@ function RequestForm({ requests, setRequests }) {
           id="outlined-images-input"
           label="Image"
           type="text"
-          name="images"
+          name="image"
           autoComplete="off"
-          value={requestFormData.images}
+          value={requestFormData.image}
+          onChange={handleRequestInputChange}
+        />
+        <br />
+        <TextField
+          id="outlined-volunteers-input"
+          label="Volunteers Needed"
+          type="text"
+          name="volunteers_needed"
+          autoComplete="off"
+          value={requestFormData.volunteers_needed}
           onChange={handleRequestInputChange}
         />
         <br />
@@ -126,6 +138,20 @@ function RequestForm({ requests, setRequests }) {
                 <MenuItem value={2}>2</MenuItem>
                 <MenuItem value={3}>3</MenuItem>
                 <MenuItem value={4}>4</MenuItem>
+            </Select>
+        </FormControl>
+        <br />
+        <FormControl sx={{width: "250px", marginLeft: "15px", marginTop: "15px", marginBottom: "15px"}} >
+            <InputLabel>Frequency</InputLabel>
+            <Select
+                name="hours_requested"
+                value={requestFormData.frequency}
+                onChange={handleRequestInputChange}
+            >
+                <MenuItem value={"daily"}>daily</MenuItem>
+                <MenuItem value={"weekly"}>weekly</MenuItem>
+                <MenuItem value={"every two weeks"}>every two weeks</MenuItem>
+                <MenuItem value={"monthly"}>monthly</MenuItem>
             </Select>
         </FormControl>
         <br />

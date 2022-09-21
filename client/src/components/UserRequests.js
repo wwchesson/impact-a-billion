@@ -49,7 +49,7 @@ function UserRequests({ requests, setRequests }) {
             {approved}
             <br />
             <Button onClick={() => setShowEditRequest(!showEditRequest)}>Edit</Button>
-            {showEditRequest ? <EditRequests requests={requests} setRequests={setRequests} showEditRequest={showEditRequest} setShowEditRequest={setShowEditRequest}/>: null}
+            {showEditRequest ? <EditRequests request={request} setRequests={setRequests} showEditRequest={showEditRequest} setShowEditRequest={setShowEditRequest}/>: null}
             <Button>Delete</Button>
           </CardContent>
         </Card>
