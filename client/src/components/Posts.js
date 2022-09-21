@@ -4,7 +4,7 @@ import { Grid, Container } from "@mui/material";
 import UserPosts from "./UserPosts";
 import { UserContext } from "../Context";
 
-function Posts({ posts }) {
+function Posts({ posts, setPosts }) {
   const user = useContext(UserContext);
 
   return (
@@ -16,6 +16,7 @@ function Posts({ posts }) {
       <Container maxWidth="md">
             <UserPosts
             posts = {posts.filter((post) => (post.user_id === user.currentUser.id))}
+            setPosts={setPosts}
             />
       </Container>
     </div>

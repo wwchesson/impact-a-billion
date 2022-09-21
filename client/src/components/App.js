@@ -51,13 +51,13 @@ function App() {
           element={<Home posts={posts} impacterEvents={impacterEvents} />}
         ></Route>
         <Route path="/users/:id" element={<UserProfile />}></Route>
-        <Route path="/posts/:id" element={<Posts posts={posts} />}></Route>
+        <Route path="/posts" element={<Posts posts={posts} setPosts={setPosts}/>}></Route>
         <Route
           path="/newpost"
           element={<PostForm posts={posts} setPosts={setPosts} />}
         ></Route>
         <Route
-          path="/requests/:id"
+          path="/requests"
           element={<Requests requests={requests} />}
         ></Route>
         <Route

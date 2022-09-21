@@ -9,8 +9,8 @@ function NavBar() {
   // console.log(user)
   const userId = user.currentUser.id;
   const profile = `/users/${userId}`;
-  const posts = `/posts/${userId}`;
-  const requests = `/requests/${userId}`;
+  // const posts = `/posts/${userId}`;
+  // const requests = `/requests/${userId}`;
 
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -55,14 +55,14 @@ function NavBar() {
           <Link
             id="nav-link"
             style={{ color: "white", margin: "4em 4em", align: "right" }}
-            to={posts}
+            to={"/posts"}
           >
             Posts
           </Link>
           <Link
             id="nav-link"
             style={{ color: "white", margin: "4em 4em", align: "right" }}
-            to={requests}
+            to={"/requests"}
           >
             Requests
           </Link>
