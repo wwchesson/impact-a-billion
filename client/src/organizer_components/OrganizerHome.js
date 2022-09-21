@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Typography, Card, Button, Grid, Box } from "@mui/material";
+import { Typography, Card, Button, Box } from "@mui/material";
 import AllRequests from "./AllRequests";
 import AllEvents from "./AllEvents";
 import AllImpacters from "./AllImpacters";
@@ -34,25 +34,28 @@ function OrganizerHome() {
   return (
     <div>
       <Typography
-        padding="10px"
+        padding="20px"
         justifyContent="center"
         display="flex"
         variant="h4"
+        marginBottom="10px"
       >
         What would you like to do?
       </Typography>
-      <Box sx={{ flexGrow: 1 }}>
-        <Card>
+      <Box sx={{ flexGrow: 1 }} className="organizer-home">
+        <Card className="organizer-cards">
           <Button onClick={() => setShowRequests(!showRequests)}>
-            View Requests
+            <Typography variant="h6">View Requests</Typography>
+            
           </Button>
           {showRequests ? (
             <AllRequests setEvents={setEvents} events={events} />
           ) : null}
         </Card>
-        <Card>
+        <Card className="organizer-cards">
           <Button onClick={() => setShowEvents(!showEvents)}>
-            View Your Events
+          <Typography variant="h6">View Your Events</Typography>
+            
           </Button>
           {showEvents ? (
             <AllEvents
@@ -63,15 +66,16 @@ function OrganizerHome() {
             />
           ) : null}
         </Card>
-        <Card>
+        <Card className="organizer-cards">
           <Button onClick={() => setShowImpacters(!showImpacters)}>
-            View Impacters
+          <Typography variant="h6">View Impacters</Typography>
+            
           </Button>
           {showImpacters ? <AllImpacters event={events} /> : null}
         </Card>
-        <Card>
+        <Card className="organizer-cards">
           <Button onClick={() => setShowPastEvents(!showPastEvents)}>
-            View Your Past Events
+          <Typography variant="h6">View Your Past Events</Typography>
           </Button>
           {showPastEvents ? (
             <PastEvents

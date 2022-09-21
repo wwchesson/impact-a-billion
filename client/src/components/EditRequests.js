@@ -153,7 +153,7 @@ function EditRequests({
         </FormControl>
         <br />
         <Button type="submit">
-          <Typography variant="h5">
+          <Typography variant="h6">
             Edit Request
           </Typography>
         </Button>

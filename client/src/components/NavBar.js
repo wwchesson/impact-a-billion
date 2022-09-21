@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../Context";
 import { Link } from "react-router-dom";
-import { AppBar, Toolbar, Button, Typography } from "@mui/material";
+import { AppBar, Toolbar, Button, Typography, Box } from "@mui/material";
 import impactLogo from "../images/impactLogo.jpeg";
 
 function NavBar() {
@@ -17,6 +17,13 @@ function NavBar() {
     });
   }
 
+  const style = {
+    color: "white",
+    display: "flex",
+    margin: "3em 3em",
+    align: "right",
+  };
+
   return (
     <div>
       <AppBar
@@ -29,41 +36,25 @@ function NavBar() {
       >
         <Toolbar>
           <img alt="logo" src={impactLogo} />
-          <Link
-            id="nav-link"
-            style={{ color: "white", margin: "4em 4em", align: "right" }}
-            to={"/home"}
-          >
+          <Link style={style} to={"/home"}>
             Home
           </Link>
-          <Link
-            id="nav-link"
-            style={{ color: "white", margin: "4em 4em", align: "right" }}
-            to={"/events"}
-          >Events
+          <Link style={style} to={"/events"}>
+            Events
           </Link>
-          <Link
-            id="nav-link"
-            style={{ color: "white", margin: "4em 4em", align: "right" }}
-            to={profile}
-          >
-            Profile{" "}
+          <Link style={style} to={profile}>
+            Profile
           </Link>
-          <Link
-            id="nav-link"
-            style={{ color: "white", margin: "4em 4em", align: "right" }}
-            to={"/posts"}
-          >
+          <Link style={style} to={"/posts"}>
             Posts
           </Link>
-          <Link
-            id="nav-link"
-            style={{ color: "white", margin: "4em 4em", align: "right" }}
-            to={"/requests"}
-          >
+          <Link style={style} to={"/requests"}>
             Requests
           </Link>
-          <Button style={{ color: "white", margin: "4em 4em", align: "right" }} onClick={handleLogoutClick}> Logout </Button>
+          <Button style={style} onClick={handleLogoutClick}>
+            {" "}
+            Logout{" "}
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

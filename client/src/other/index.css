@@ -1,55 +1,71 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-#user-info{
+#user-info {
   align-items: center;
   justify-content: center;
   text-align: left;
   margin-bottom: 1em;
 }
 
-#user-card{
-  
+#user-card {
   width: 35em;
   /* height: 20em; */
   justify-content: center;
   margin: auto;
   margin-bottom: 2em;
   display: flex;
-  
 }
 
-#signin-form{
+#signin-form {
   width: 500px;
   height: 500px;
   align-items: center;
   justify-content: center;
 }
 
-#edit-icon{
+#edit-icon {
   align-items: right;
   justify-content: right;
   text-align: right;
   position: right;
 }
 
-.impacter-cards{
+.impacter-cards {
   padding: 10px;
   margin-bottom: 30px;
 }
 
-/* #nav-link{
-  color: #fff;
-} */
+.request-card {
+  margin-bottom: 30px;
+}
 
+.organizer-home {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.organizer-cards {
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  justify-content: center;
+}
+
+.signin-logo{
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  display: flex;
+}
