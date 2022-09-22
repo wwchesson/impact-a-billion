@@ -70,3 +70,9 @@ code {
   display: flex;
   margin-bottom: 25px;
 }
+
+.carescapes{
+  margin-left: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px
+}

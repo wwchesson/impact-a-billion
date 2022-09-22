@@ -13,4 +13,8 @@ class Carescape < ApplicationRecord
         self.past_event.date
     end
 
+    # def
+    #     self.past_event.user
+    # end
+
 end

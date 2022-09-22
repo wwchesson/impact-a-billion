@@ -9,6 +9,7 @@ import PostForm from "./PostForm";
 import Requests from "./Requests";
 import RequestForm from "./RequestForm";
 import BrowseEvents from "./BrowseEvents";
+import Carescapes from "./Carescapes";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -41,6 +42,12 @@ function App() {
       });
   }, []);
 
+  // useEffect(() => {
+  //   fetch("/past_events")
+  //     .then((r) => r.json())
+  //     .then((data) => setPastEvents(data));
+  // }, []);
+
   return (
     <div className="App">
       <NavBar />
@@ -69,6 +76,10 @@ function App() {
         <Route
           path="/events"
           element={<BrowseEvents  />}
+        ></Route>
+        <Route
+        path="/gallery"
+        element={<Carescapes />}
         ></Route>
       </Routes>
     </div>

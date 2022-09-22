@@ -39,6 +39,7 @@ function NavBar() {
           <Link style={style} to={"/home"}>
             Home
           </Link>
+          <Link style={style} to={"/gallery"}>Carescapes</Link>
           <Link style={style} to={"/events"}>
             Events
           </Link>

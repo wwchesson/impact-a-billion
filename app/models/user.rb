@@ -8,6 +8,12 @@ class User < ApplicationRecord
 
     has_many :posts
     has_many :requests
+    has_many :impacter_past_events
+    has_many :past_events, through: :impacter_past_events
 
     has_secure_password
+
+    def user_carescape
+        self.past_events.map{|past_event| past_event.carescape.image}
+    end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_16_191615) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_22_181556) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_191615) do
   create_table "impacter_events", force: :cascade do |t|
     t.integer "event_id"
     t.integer "impacter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "impacter_past_events", force: :cascade do |t|
+    t.integer "past_event_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

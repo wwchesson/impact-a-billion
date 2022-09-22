@@ -24,13 +24,13 @@ Request.create(name: "Habitat Houses", description: "Construct houses for those 
 
 Request.create(name: "Greater Lakes Hospice", description: "Help hospice patients with daily tasks", category: "Hospice Care", hours_requested: 1, user_id: 4, location: "Peoplestown", approved: "pending", frequency: "Daily", volunteers_needed: 10, image: "https://www.vitas.com/-/media/images/hospice-and-palliative-care-basics/about-hospice-care/about-hospice-care-tbnl.ashx?h=330&iar=0&mh=330&mw=345&w=345&hash=4FA6D87B21DA00521FB635666EAA77D7")
 
-Post.create(likes: 0, comments: [], user_id: 1, past_event_id: 1, caption: "We love our volunteers!", image: "https://www.thegardnerschool.com/wp-content/uploads/2018/08/Reading_With_Children_Daily-1536x1024.jpg")
+Post.create(likes: 0, user_id: 1, past_event_id: 1, caption: "We love our volunteers!", image: "https://www.thegardnerschool.com/wp-content/uploads/2018/08/Reading_With_Children_Daily-1536x1024.jpg")
 
-Post.create(likes: 0, comments: [], user_id: 2, past_event_id: 2, caption: "The forest is happy.", image: "https://treetrust.org/wp-content/uploads/2021/08/DSC_0178-768x512.jpg")
+Post.create(likes: 0,  user_id: 2, past_event_id: 2, caption: "The forest is happy.", image: "https://treetrust.org/wp-content/uploads/2021/08/DSC_0178-768x512.jpg")
 
-Post.create(likes: 0, comments: [], user_id: 3, past_event_id: 3, caption: "I love these guys.", image: "https://i0.wp.com/www.irishcatholic.com/wp-content/uploads/2017/04/SoupKitchen.jpg?w=640&ssl=1")
+Post.create(likes: 0,  user_id: 3, past_event_id: 3, caption: "I love these guys.", image: "https://i0.wp.com/www.irishcatholic.com/wp-content/uploads/2017/04/SoupKitchen.jpg?w=640&ssl=1")
 
-Post.create(likes: 0, comments: [], user_id: 4, past_event_id: 4, caption: "The river looks great", image: "https://www.neponset.org/wp-content/uploads/2017/09/20170923_105556-1024x576.jpg")
+Post.create(likes: 0, user_id: 4, past_event_id: 4, caption: "The river looks great", image: "https://www.neponset.org/wp-content/uploads/2017/09/20170923_105556-1024x576.jpg")
 
 
 PastEvent.create(name: "Reading Mentorship", description: "Briarcliff Elementary needs volunteers to help with its literacy program", location: "Toco Hills", category: "Mentoring", date: "Fall 2021", organizer_id: 6, image: "https://www.thegardnerschool.com/wp-content/uploads/2018/08/Reading_With_Children_Daily-1536x1024.jpg")

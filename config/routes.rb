@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :impacter_past_events
   resources :past_events
   resources :carescapes
   resources :events
