@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../Context";
 import ImpacterFeed from "./ImpacterFeed";
 import OrganizerHome from "../organizer_components/OrganizerHome";

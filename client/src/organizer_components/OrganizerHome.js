@@ -46,7 +46,6 @@ function OrganizerHome() {
         <Card className="organizer-cards">
           <Button onClick={() => setShowRequests(!showRequests)}>
             <Typography variant="h6">View Requests</Typography>
-            
           </Button>
           {showRequests ? (
             <AllRequests setEvents={setEvents} events={events} />
@@ -54,8 +53,7 @@ function OrganizerHome() {
         </Card>
         <Card className="organizer-cards">
           <Button onClick={() => setShowEvents(!showEvents)}>
-          <Typography variant="h6">View Your Events</Typography>
-            
+            <Typography variant="h6">View Your Events</Typography>
           </Button>
           {showEvents ? (
             <AllEvents
@@ -68,14 +66,13 @@ function OrganizerHome() {
         </Card>
         <Card className="organizer-cards">
           <Button onClick={() => setShowImpacters(!showImpacters)}>
-          <Typography variant="h6">View Impacters</Typography>
-            
+            <Typography variant="h6">View Impacters</Typography>
           </Button>
           {showImpacters ? <AllImpacters event={events} /> : null}
         </Card>
         <Card className="organizer-cards">
           <Button onClick={() => setShowPastEvents(!showPastEvents)}>
-          <Typography variant="h6">View Your Past Events</Typography>
+            <Typography variant="h6">View Your Past Events</Typography>
           </Button>
           {showPastEvents ? (
             <PastEvents
