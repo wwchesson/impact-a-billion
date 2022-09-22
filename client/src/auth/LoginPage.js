@@ -13,19 +13,10 @@ function LoginPage({ onLogin }) {
         justifyContent="center"
         display="flex"
         variant="h4"
-        marginBottom="5px">
-     build community, impact lives.
+        marginTop="20px">
+     build community, impact lives
       </Typography>
       <br />
-      {/* <Card>
-        <CardMedia
-        component="img"
-        image={impactLogo}
-        height="100"
-        >
-
-        </CardMedia>
-      </Card> */}
       <img alt="logo" src={impactLogo} className="signin-logo"/>
       <br />
       <Card
