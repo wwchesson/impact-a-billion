@@ -1,8 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, TextField, Button, Typography, InputLabel, MenuItem, FormControl } from "@mui/material";
+import {
+  Box,
+  TextField,
+  Button,
+  Typography,
+  InputLabel,
+  MenuItem,
+  FormControl,
+} from "@mui/material";
 import { UserContext } from "../Context";
-import Select from '@mui/material/Select';
+import Select from "@mui/material/Select";
 
 function RequestForm({ requests, setRequests }) {
   //program submit function
@@ -33,7 +41,7 @@ function RequestForm({ requests, setRequests }) {
     category: "",
     hours_requested: "",
     frequency: "",
-    volunteers_needed: ""
+    volunteers_needed: "",
   });
 
   function handleRequestInputChange(e) {
@@ -43,7 +51,11 @@ function RequestForm({ requests, setRequests }) {
   function handleRequestSubmit(e) {
     e.preventDefault();
     setErrors([]);
-    const requestData = { ...requestFormData, user_id: userId, approved: "pending" };
+    const requestData = {
+      ...requestFormData,
+      user_id: userId,
+      approved: "pending",
+    };
     fetch("/requests", {
       method: "POST",
       headers: {
@@ -54,10 +66,10 @@ function RequestForm({ requests, setRequests }) {
       .then((r) => r.json())
       .then((newRequest) => {
         handleAddNewRequest(newRequest);
-        navigate(`/requests/${userId}`);
+        navigate("requests");
       });
   }
-  
+
   return (
     <form onSubmit={handleRequestSubmit}>
       <Box
@@ -105,54 +117,81 @@ function RequestForm({ requests, setRequests }) {
           onChange={handleRequestInputChange}
         />
         <br />
-        <FormControl sx={{width: "250px", marginLeft: "15px", marginTop: "5px", marginBottom: "5px"}} >
-            <InputLabel>Category</InputLabel>
-            <Select
-                name="category"
-                value={requestFormData.category}
-                onChange={handleRequestInputChange}
-            > 
-                <MenuItem value={"AgroEcology"}>AgroEcology</MenuItem>
-                <MenuItem value={"Backpack Prep"}>Backpack Prep</MenuItem>
-                <MenuItem value={"Construction"}>Construction</MenuItem>
-                <MenuItem value={"Donation Organization"}>Donation Organization</MenuItem>
-                <MenuItem value={"Environmental Restoration"}>Environmental Restoration</MenuItem>
-                <MenuItem value={"Hospice Care"}>Hospice Care</MenuItem>
-                <MenuItem value={"Life Skills Instruction"}>Life Skills Instruction</MenuItem>
-                <MenuItem value={"Meal Share"}>Meal Share</MenuItem>
-                <MenuItem value={"Mentoring"}>Mentoring</MenuItem>
-                <MenuItem value={"Reforestation"}>Reforestation</MenuItem>
-                <MenuItem value={"Youth Program"}>Youth Program</MenuItem>
-            </Select>
-
+        <FormControl
+          sx={{
+            width: "250px",
+            marginLeft: "15px",
+            marginTop: "5px",
+            marginBottom: "5px",
+          }}
+        >
+          <InputLabel>Category</InputLabel>
+          <Select
+            name="category"
+            value={requestFormData.category}
+            onChange={handleRequestInputChange}
+          >
+            <MenuItem value={"AgroEcology"}>AgroEcology</MenuItem>
+            <MenuItem value={"Backpack Prep"}>Backpack Prep</MenuItem>
+            <MenuItem value={"Construction"}>Construction</MenuItem>
+            <MenuItem value={"Donation Organization"}>
+              Donation Organization
+            </MenuItem>
+            <MenuItem value={"Environmental Restoration"}>
+              Environmental Restoration
+            </MenuItem>
+            <MenuItem value={"Hospice Care"}>Hospice Care</MenuItem>
+            <MenuItem value={"Life Skills Instruction"}>
+              Life Skills Instruction
+            </MenuItem>
+            <MenuItem value={"Meal Share"}>Meal Share</MenuItem>
+            <MenuItem value={"Mentoring"}>Mentoring</MenuItem>
+            <MenuItem value={"Reforestation"}>Reforestation</MenuItem>
+            <MenuItem value={"Youth Program"}>Youth Program</MenuItem>
+          </Select>
         </FormControl>
         <br />
-        <FormControl sx={{width: "250px", marginLeft: "15px", marginTop: "15px", marginBottom: "15px"}} >
-            <InputLabel>Hours Requested</InputLabel>
-            <Select
-                name="hours_requested"
-                value={requestFormData.hours_requested}
-                onChange={handleRequestInputChange}
-            >
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>3</MenuItem>
-                <MenuItem value={4}>4</MenuItem>
-            </Select>
+        <FormControl
+          sx={{
+            width: "250px",
+            marginLeft: "15px",
+            marginTop: "15px",
+            marginBottom: "15px",
+          }}
+        >
+          <InputLabel>Hours Requested</InputLabel>
+          <Select
+            name="hours_requested"
+            value={requestFormData.hours_requested}
+            onChange={handleRequestInputChange}
+          >
+            <MenuItem value={1}>1</MenuItem>
+            <MenuItem value={2}>2</MenuItem>
+            <MenuItem value={3}>3</MenuItem>
+            <MenuItem value={4}>4</MenuItem>
+          </Select>
         </FormControl>
         <br />
-        <FormControl sx={{width: "250px", marginLeft: "15px", marginTop: "15px", marginBottom: "15px"}} >
-            <InputLabel>Frequency</InputLabel>
-            <Select
-                name="hours_requested"
-                value={requestFormData.frequency}
-                onChange={handleRequestInputChange}
-            >
-                <MenuItem value={"daily"}>daily</MenuItem>
-                <MenuItem value={"weekly"}>weekly</MenuItem>
-                <MenuItem value={"every two weeks"}>every two weeks</MenuItem>
-                <MenuItem value={"monthly"}>monthly</MenuItem>
-            </Select>
+        <FormControl
+          sx={{
+            width: "250px",
+            marginLeft: "15px",
+            marginTop: "15px",
+            marginBottom: "15px",
+          }}
+        >
+          <InputLabel>Frequency</InputLabel>
+          <Select
+            name="hours_requested"
+            value={requestFormData.frequency}
+            onChange={handleRequestInputChange}
+          >
+            <MenuItem value={"once"}>once</MenuItem>
+            <MenuItem value={"daily"}>daily</MenuItem>
+            <MenuItem value={"weekly"}>weekly</MenuItem>
+            <MenuItem value={"every two weeks"}>every two weeks</MenuItem>
+            <MenuItem value={"monthly"}>monthly</MenuItem>
+          </Select>
         </FormControl>
         <br />
         <Button type="submit">
