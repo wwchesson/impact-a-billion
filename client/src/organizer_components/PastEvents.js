@@ -10,11 +10,10 @@ import {
     Grid,
   } from "@mui/material";
 
+
+
 function PastEvents ({pastEvents}) {
-
-   
-
-    return (
+      return (
         <Container maxWidth="md">
       <Grid container spacing={4}>
         {pastEvents.map((pastEvent) => (

@@ -1,9 +1,10 @@
 import React from "react";
-import { Typography, Button} from "@mui/material"
+import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+import OrganizerApply from "./OrganizerApply";
 
-function ProfileCard({user}) {
-
-    const { skills, availability, travel_radius, zip, token_points} = user;
+function ProfileCard({ user }) {
+  const { skills, availability, travel_radius, zip, token_points } = user;
 
   return (
     <div>
@@ -22,6 +23,9 @@ function ProfileCard({user}) {
       <Typography id="user-info" variant="h5">
         Current Zip Code: {zip}
       </Typography>
+      <Link to="/organizer-application">
+        <Typography variant="h5">Become an Organizer</Typography>
+      </Link>
     </div>
   );
 }

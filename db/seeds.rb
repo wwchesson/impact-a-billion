@@ -24,14 +24,7 @@ Request.create(name: "Habitat Houses", description: "Construct houses for those 
 
 Request.create(name: "Greater Lakes Hospice", description: "Help hospice patients with daily tasks", category: "Hospice Care", hours_requested: 1, user_id: 4, location: "Peoplestown", approved: "pending", frequency: "Daily", volunteers_needed: 10, image: "https://www.vitas.com/-/media/images/hospice-and-palliative-care-basics/about-hospice-care/about-hospice-care-tbnl.ashx?h=330&iar=0&mh=330&mw=345&w=345&hash=4FA6D87B21DA00521FB635666EAA77D7")
 
-Post.create(likes: 0, user_id: 1, past_event_id: 1, caption: "We love our volunteers!", image: "https://www.thegardnerschool.com/wp-content/uploads/2018/08/Reading_With_Children_Daily-1536x1024.jpg")
-
-Post.create(likes: 0,  user_id: 2, past_event_id: 2, caption: "The forest is happy.", image: "https://treetrust.org/wp-content/uploads/2021/08/DSC_0178-768x512.jpg")
-
-Post.create(likes: 0,  user_id: 3, past_event_id: 3, caption: "I love these guys.", image: "https://i0.wp.com/www.irishcatholic.com/wp-content/uploads/2017/04/SoupKitchen.jpg?w=640&ssl=1")
-
-Post.create(likes: 0, user_id: 4, past_event_id: 4, caption: "The river looks great", image: "https://www.neponset.org/wp-content/uploads/2017/09/20170923_105556-1024x576.jpg")
-
+####
 
 PastEvent.create(name: "Reading Mentorship", description: "Briarcliff Elementary needs volunteers to help with its literacy program", location: "Toco Hills", category: "Mentoring", date: "Fall 2021", organizer_id: 6, image: "https://www.thegardnerschool.com/wp-content/uploads/2018/08/Reading_With_Children_Daily-1536x1024.jpg")
 
@@ -44,9 +37,18 @@ PastEvent.create(name: "Clean Peachtree River", description: "There is so much d
 PastEvent.create(name: "Financial literacy class", description: "Help former inmates balance finances.", location: "Fayetteville, GA", category: "Life skills instruction", date: "Spring 2022", organizer_id: 5, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-kTmwnaGjWE7M8dF44hfQgOlsqjaoiSHaxA&usqp=CAU")
 
 
+####
+Post.create(likes: 0, user_id: 1, past_event_id: 1, caption: "We love our volunteers!", image: "https://www.thegardnerschool.com/wp-content/uploads/2018/08/Reading_With_Children_Daily-1536x1024.jpg")
+
+Post.create(likes: 0,  user_id: 2, past_event_id: 2, caption: "The forest is happy.", image: "https://treetrust.org/wp-content/uploads/2021/08/DSC_0178-768x512.jpg")
+
+Post.create(likes: 0,  user_id: 3, past_event_id: 3, caption: "I love these guys.", image: "https://i0.wp.com/www.irishcatholic.com/wp-content/uploads/2017/04/SoupKitchen.jpg?w=640&ssl=1")
+
+Post.create(likes: 0, user_id: 4, past_event_id: 4, caption: "The river looks great", image: "https://www.neponset.org/wp-content/uploads/2017/09/20170923_105556-1024x576.jpg")
+
 Event.create(name: "Revamp northside urban garden", description: "The beds need fixing and weeding.", location: "Atlanta Northside", category: "AgroEcology", completed:false, organizer_id: 6, date: "Sept 9, 2022", image: "https://images.squarespace-cdn.com/content/v1/5162d432e4b05c3081699597/1549981578764-CQHVP2MSMQV1MPFYB3OY/raised+beds+smaller.jpg?format=750w")
 
-Event.create(name: "Donation Sorting", description: "Goodwill needs volunteers to sort donations.", location: "East Atlanta", category: "Donation Organization", completed:false, organizer_id: 7, date: "July 10, 2022", image: "https://www.pahomepage.com/wp-content/uploads/sites/91/2018/03/IMG_9732_1519939562991_35583578_ver1.0.jpg?w=876&h=493&crop=1")
+Event.create(name: "Donation Sorting", description: "Goodwill needs volunteers to sort donations.", location: "East Atlanta", category: "Donation Organization", completed:false, organizer_id: 5, date: "July 10, 2022", image: "https://www.pahomepage.com/wp-content/uploads/sites/91/2018/03/IMG_9732_1519939562991_35583578_ver1.0.jpg?w=876&h=493&crop=1")
 
 Carescape.create(api_address: "www.aiart.org", comments: [], likes: 3, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGVBG-gLrwqT_ZbUTjoHbgahHy1h2Qtx28xw&usqp=CAU", past_event_id: 2)
 

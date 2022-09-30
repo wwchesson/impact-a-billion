@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, Card, CardContent, CardMedia, Button } from "@mui/material";
 import EventImpacters from "./EventImpacters";
 
 function EventCard({ event, events, setEvents, pastEvents, setPastEvents }) {
   const [showEventImpacters, setShowEventImpacters] = useState(false);
+
+  const [carescapeImage, setCarescapeImage] = useState("");
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
+  useEffect(() => {
+    fetch(`/carescapes/${getRandomInt(1, 6)}`)
+      .then((r) => r.json())
+      .then((data) => {
+        setCarescapeImage(data.image);
+        console.log(carescapeImage);
+      });
+  });
 
   function handleEventCompletedClick(id) {
     fetch(`events/${id}`, {
@@ -19,6 +34,17 @@ function EventCard({ event, events, setEvents, pastEvents, setPastEvents }) {
           method: "DELETE",
         });
         setEvents(events.filter((event) => event.id !== id));
+        fetch(`/carescapes`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            api_address: "www.aiart.org",
+            image: carescapeImage,
+          }),
+        }).then((r) => r.json());
+
         setPastEvents([...pastEvents, pastEventObj]);
       });
   }

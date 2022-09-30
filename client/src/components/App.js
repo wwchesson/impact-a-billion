@@ -10,6 +10,7 @@ import Requests from "./Requests";
 import RequestForm from "./RequestForm";
 import BrowseEvents from "./BrowseEvents";
 import Carescapes from "./Carescapes";
+import OrganizerApply from "./OrganizerApply"
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -81,6 +82,10 @@ function App() {
         path="/gallery"
         element={<Carescapes />}
         ></Route>
+        <Route path="/organizer-application"
+        element={<OrganizerApply />}
+        >
+        </Route>
       </Routes>
     </div>
   );

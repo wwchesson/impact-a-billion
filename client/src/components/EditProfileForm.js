@@ -6,14 +6,15 @@ import { UserContext } from "../Context";
 function EditProfileForm({ singleUser, setSingleUser, showEditForm, setShowEditForm }) {
   const navigate = useNavigate();
   const user = useContext(UserContext);
-  const { skills, availability, zip, image } = singleUser;
+  const { skills, availability, zip, image, travel_radius } = singleUser;
   const userId = user.currentUser.id;
   const [errors, setErrors] = useState([]);
   const [profileFormData, setProfileFormData] = useState({
     skills: skills,
     availability: availability,
     zip: zip,
-    image: image
+    image: image,
+    travel_radius: travel_radius
   });
 
   function handleProfileInputChange(e) {
@@ -68,6 +69,15 @@ function EditProfileForm({ singleUser, setSingleUser, showEditForm, setShowEditF
           autoComplete="off"
           name="availability"
           value={profileFormData.availability}
+          onChange={handleProfileInputChange}
+        />
+        <br />
+        <TextField
+          id="outlined-radius-input"
+          label="Travel Radius"
+          autoComplete="off"
+          name="travel_radius"
+          value={profileFormData.travel_radius}
           onChange={handleProfileInputChange}
         />
         <br />

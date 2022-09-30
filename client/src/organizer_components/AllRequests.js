@@ -16,6 +16,7 @@ function AllRequests({ setEvents, events }) {
   const organizer_id = user.currentUser.id;
   const [allRequests, setAllRequests] = useState([]);
 
+
   useEffect(() => {
     fetch("/requests")
       .then((r) => r.json())

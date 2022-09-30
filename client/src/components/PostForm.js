@@ -37,12 +37,10 @@ function PostForm({ posts, setPosts }) {
   function handleAddNewPost(newPost) {
     const userCopy = { ...userWithPosts };
     userCopy.posts.push(newPost);
-    // setUserWithPosts(userCopy);
     setPosts([...posts, newPost]);
   }
 
   //program form
-
   const [errors, setErrors] = useState([]);
   const [postFormData, setPostFormData] = useState({
     image: "",
