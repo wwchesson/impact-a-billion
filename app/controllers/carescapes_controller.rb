@@ -16,7 +16,6 @@ class CarescapesController < ApplicationController
   # POST /carescapes
   def create
     @carescape = Carescape.new(carescape_params)
-
     if @carescape.save
       render json: @carescape, status: :created, location: @carescape
     else
@@ -46,6 +45,6 @@ class CarescapesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def carescape_params
-      params.permit(:api_address, :image, :comments, :likes)
+      params.require(:carescape).permit(:api_address, :image, :comments, :likes, :past_event_id)
     end
 end

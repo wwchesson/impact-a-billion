@@ -34,20 +34,16 @@ function App() {
       });
   }, []);
 
-  useEffect(() => {
-    fetch("/impacter_events")
-      .then((r) => r.json())
-      .then((data) => {
-        setImpacterEvents(data);
-        // console.log(data);
-      });
-  }, []);
-
   // useEffect(() => {
-  //   fetch("/past_events")
+  //   fetch("/impacter_events")
   //     .then((r) => r.json())
-  //     .then((data) => setPastEvents(data));
+  //     .then((data) => {
+  //       setImpacterEvents(data);
+  //       // console.log(data);
+  //     });
   // }, []);
+
+  
 
   return (
     <div className="App">
@@ -56,7 +52,7 @@ function App() {
         <Route path="/" element={<LoginPage />}></Route>
         <Route
           path="/home"
-          element={<Home posts={posts} impacterEvents={impacterEvents} />}
+          element={<Home posts={posts} />}
         ></Route>
         <Route path="/users/:id" element={<UserProfile />}></Route>
         <Route path="/posts" element={<Posts posts={posts} setPosts={setPosts}/>}></Route>

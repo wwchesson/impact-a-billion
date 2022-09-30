@@ -20,6 +20,22 @@ function EventCard({ event, events, setEvents, pastEvents, setPastEvents }) {
       });
   });
 
+  function getCarescape(pastEventObj) {
+    fetch(`/carescapes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        api_address: "www.aiart.org",
+        image: carescapeImage,
+        past_event_id: pastEventObj.id,
+      }),
+    })
+      .then((r) => r.json())
+      .then((data) => console.log(data));
+  }
+
   function handleEventCompletedClick(id) {
     fetch(`events/${id}`, {
       method: "PATCH",
@@ -30,21 +46,12 @@ function EventCard({ event, events, setEvents, pastEvents, setPastEvents }) {
     })
       .then((r) => r.json())
       .then((pastEventObj) => {
-        fetch(`/events/${id}`, {
-          method: "DELETE",
-        });
-        setEvents(events.filter((event) => event.id !== id));
-        fetch(`/carescapes`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            api_address: "www.aiart.org",
-            image: carescapeImage,
-          }),
-        }).then((r) => r.json());
-
+        // fetch(`/events/${id}`, {
+        //   method: "DELETE",
+        // });
+        setEvents([...events]);
+        getCarescape(pastEventObj);
+        console.log(pastEventObj.id)
         setPastEvents([...pastEvents, pastEventObj]);
       });
   }
