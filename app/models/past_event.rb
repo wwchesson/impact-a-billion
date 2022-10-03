@@ -1,5 +1,5 @@
 class PastEvent < ApplicationRecord
-    has_one :carescape
+    has_one :carescape, dependent: :destroy
     belongs_to :organizer
     has_many :posts
 

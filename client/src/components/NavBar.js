@@ -31,7 +31,7 @@ function NavBar() {
         style={{
           background: "#42234e",
           height: "5em",
-          margin: "0em 0em 1em 0em",
+
         }}
       >
         <Toolbar>

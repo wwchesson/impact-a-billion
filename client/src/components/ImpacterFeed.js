@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import { UserContext } from "../Context";
 
-
 function ImpacterFeed({ posts }) {
   const user = useContext(UserContext);
   const userId = user.currentUser.id;
@@ -45,11 +44,21 @@ function ImpacterFeed({ posts }) {
         justifyContent="center"
         display="flex"
         variant="h3"
-        padding="20px"
-        marginBottom="30px"
+        padding="10px"
+        marginBottom="10px"
+        color="
+        #692567"
       >
-        impact a life, impact the world
+        <strong>build community, impact lives</strong>
       </Typography>
+      <br />
+      <Typography justifyContent="center"
+        display="flex"
+        variant="h4"
+        marginBotton="10px"
+        color="#8f3801"
+        >Welcome {user.currentUser.name}! </Typography>
+      <br />
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={2} sm={3} md={5} marginLeft="80px">
@@ -67,9 +76,8 @@ function ImpacterFeed({ posts }) {
                   component="img"
                   image={post.image}
                   height="250"
-
                 ></CardMedia>
-                <CardContent>{post.caption}</CardContent>
+                <CardContent><strong>{post.caption}</strong></CardContent>
               </Card>
             ))}
           </Grid>
@@ -104,9 +112,13 @@ function ImpacterFeed({ posts }) {
               {carescapes.slice(0, 3).map((art) => (
                 <Card key={art.id} className="impacter-cards">
                   <CardContent>
-                    <Typography justifyContent="center"
-                display="flex"
-                padding="10px">{art.event_name}</Typography>
+                    <Typography
+                      justifyContent="center"
+                      display="flex"
+                      padding="10px"
+                    >
+                      {art.event_name}
+                    </Typography>
                     <CardMedia
                       component="img"
                       image={art.image}

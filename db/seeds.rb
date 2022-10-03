@@ -64,7 +64,7 @@ ImpacterEvent.create(event_id: 1, impacter_id: 1)
 ImpacterEvent.create(event_id: 1, impacter_id: 2)
 ImpacterEvent.create(event_id: 2, impacter_id: 3)
 ImpacterEvent.create(event_id: 2, impacter_id: 4)
-ImpacterEvent.create(event_id: 2, impacter_id: 5)
+
 
 
 
