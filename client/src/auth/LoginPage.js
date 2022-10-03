@@ -7,6 +7,7 @@ import {
   Card,
   CardMedia,
   CardContent,
+  Button,
 } from "@mui/material";
 import impactLogo from "../images/impactLogo.jpeg";
 
@@ -61,11 +62,16 @@ function LoginPage({ onLogin }) {
           {showLogin ? (
             <>
               <LoginForm onLogin={onLogin} />
-              <p className="create-account">
-                
-                <strong>Create an account</strong> &nbsp;{" "}
-                <button onClick={() => setShowLogin(false)}> Sign up </button>
-              </p>
+              <br />
+
+              <Button onClick={() => setShowLogin(false)}>
+                <Typography variant="h5">create an account</Typography>
+              </Button>
+              <br />
+              <Typography sx={{marginTop: "20px", marginLeft: "5px"}} variant="h5" color="#060f78"><strong>Want to become an organizer?</strong>
+                 <br />
+                <a href="willchesson@gmail.com">Contact Will</a>
+              </Typography>
             </>
           ) : (
             <>

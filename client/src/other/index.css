@@ -79,5 +79,7 @@ code {
 }
 
 .create-account {
-  margin-left: 10px;
+  margin-left: 5px;
+  margin-top: 25px;
+  padding: 5px;
 }
