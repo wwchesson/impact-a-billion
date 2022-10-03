@@ -27,10 +27,11 @@ function Posts({ posts, setPosts }) {
           </Typography>
             <Box sx={{display: "flex", justifyContent: "center"}}><Link to={"/newpost"} className="">
           <Typography sx={{marginTop: "20px", marginRight: "50px"}} variant="h5">Make a New Post </Typography>
-            </Link> &nbsp; 
-            <Link to={"/newpost"} className="">
-          <Typography sx={{marginTop: "20px"}} variant="h5">Make a New Post </Typography>
-            </Link></Box>
+            </Link>
+            <Link to={"/allposts"} className="">
+          <Typography sx={{marginTop: "20px"}} variant="h5">See All Posts </Typography>
+            </Link>
+            </Box>
        
         </CardContent>
       </Card>

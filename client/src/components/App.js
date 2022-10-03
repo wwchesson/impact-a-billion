@@ -11,6 +11,7 @@ import RequestForm from "./RequestForm";
 import BrowseEvents from "./BrowseEvents";
 import Carescapes from "./Carescapes";
 import AllCarescapes from "./AllCarescapes";
+import AllPosts from "./AllPosts";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -72,6 +73,11 @@ function App() {
        element={<AllCarescapes />
        }
        ></Route>
+       <Route
+       path="/allposts"
+       element={<AllPosts posts={posts}/>}
+       >
+       </Route>
       </Routes>
     </div>
   );
