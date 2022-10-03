@@ -1,7 +1,16 @@
 import React, { useContext } from "react";
 import { UserContext } from "../Context";
-import { Link } from "react-router-dom";
-import { AppBar, Toolbar, Button, Typography, Box } from "@mui/material";
+// import { Link } from "react-router-dom";
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  Typography,
+  Box,
+  Link,
+  Card,
+  CardMedia,
+} from "@mui/material";
 import impactLogo from "../images/impactLogo.jpeg";
 
 function NavBar() {
@@ -17,48 +26,76 @@ function NavBar() {
     });
   }
 
-  const style = {
-    color: "white",
-    display: "flex",
-    margin: "3em 3em",
-    align: "right",
-  };
-
   return (
-    <div>
+    <Box
+      sx={{
+        flexGrow: 1,
+        flexDirection: "row",
+        display: "flex",
+        justifyContent: "space-evenly",
+      }}
+    >
       <AppBar
         position="static"
         style={{
           background: "#42234e",
           height: "5em",
-
         }}
       >
         <Toolbar>
-          <img alt="logo" src={impactLogo} />
-          <Link style={style} to={"/home"}>
-            Home
-          </Link>
-          <Link style={style} to={"/gallery"}>Carescapes</Link>
-          <Link style={style} to={"/events"}>
-            Events
-          </Link>
-          <Link style={style} to={profile}>
-            Profile
-          </Link>
-          <Link style={style} to={"/posts"}>
-            Posts
-          </Link>
-          <Link style={style} to={"/requests"}>
-            Requests
-          </Link>
-          <Button style={style} onClick={handleLogoutClick}>
-            {" "}
+          <Card sx={{ margin: "5px" }}>
+            <CardMedia
+              component="img"
+              image={impactLogo}
+              sx={{ flexGrow: 1, display: "flex" }}
+            ></CardMedia>
+          </Card>
+          <Typography sx={{ flexGrow: 1, display: "flex", marginLeft: "20px" }}>
+            <Link href="/home" style={{ color: "white" }}>
+              Home
+            </Link>{" "}
+          </Typography>
+
+          <Typography sx={{ flexGrow: 1, display: "flex" }}>
+            <Link href="/gallery" style={{ color: "white" }}>
+              Carescapes
+            </Link>
+          </Typography>
+
+          <Typography sx={{ flexGrow: 1, display: "flex" }}>
+            <Link href="/events" style={{ color: "white" }}>
+              Events
+            </Link>
+          </Typography>
+
+          <Typography sx={{ flexGrow: 1, display: "flex" }}>
+            <Link href={profile} style={{ color: "white" }}>
+              Profile
+            </Link>
+          </Typography>
+
+          <Typography sx={{ flexGrow: 1, display: "flex" }}>
+            <Link href="/posts" style={{ color: "white" }}>
+              Posts
+            </Link>
+          </Typography>
+
+          <Typography sx={{ flexGrow: 1, display: "flex" }}>
+            <Link href="/requests" style={{ color: "white" }}>
+              Requests
+            </Link>
+          </Typography>
+
+          <Button
+            sx={{ flexGrow: 1, display: "flex", marginLeft: "-20px" }}
+            style={{ color: "white" }}
+            onClick={handleLogoutClick}
+          >
             Logout{" "}
           </Button>
         </Toolbar>
       </AppBar>
-    </div>
+    </Box>
   );
 }
 

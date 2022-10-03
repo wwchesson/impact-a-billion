@@ -52,13 +52,12 @@ function Carescapes() {
             your community.
           </Typography>
           <Link to="/carescapes">
-            <Typography sx={{textAlign: "center", marginTop: "20px"}} variant="h6">
-              See all carescapes  
+            <Typography sx={{textAlign: "center", marginTop: "20px"}} variant="h5">
+              See All Carescapes  
             </Typography>
             </Link>
         </CardContent>
       </Card>
-
       <Container maxWidth="md">
         <Grid container spacing={6}>
           {myPastEvents.map((myPastEvent) => (

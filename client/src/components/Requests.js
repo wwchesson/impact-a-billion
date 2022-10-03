@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Grid, Container, Typography } from "@mui/material";
+import { Grid, Container, Typography, Card, CardContent, CardMedia } from "@mui/material";
 import UserRequests from "./UserRequests";
 import { UserContext } from "../Context";
 
@@ -9,10 +9,29 @@ function Requests({ requests, setRequests }) {
 
   return (
     <div>
-      <Grid item xs={6} padding="20px">
-        <Typography align="center" padding="10px" variant="h5">
+      <Card>
+        <CardContent sx={{bgcolor: "#379148"}}>
+          <Typography className="signin-logo" variant="h3" color="white">
+            <strong>Your Requests</strong>
+          </Typography>
+          <Typography variant="h6" 
+            sx={{
+                margin: "auto",
+              textAlign: "center",
+              marginTop: "20px",
+              width: "500px",
+              color: "white"
+            }}
+          >
+            Below are the requests that you have already made. Click on the link to make a new request.
+          </Typography>
+          <Typography align="center" padding="10px" variant="h5">
           <Link to={"/newrequest"}>New Request</Link>
         </Typography>
+        </CardContent>
+      </Card>
+      <Grid item xs={6} padding="20px">
+        
       </Grid>
       <Container maxWidth="md">
         <Grid item xs={12} sm={6} md={4}>
