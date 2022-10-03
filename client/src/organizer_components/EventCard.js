@@ -5,36 +5,36 @@ import EventImpacters from "./EventImpacters";
 function EventCard({ event, events, setEvents, pastEvents, setPastEvents }) {
   const [showEventImpacters, setShowEventImpacters] = useState(false);
 
-  const [carescapeImage, setCarescapeImage] = useState("");
+  // const [carescapeImage, setCarescapeImage] = useState("");
 
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-  }
+  // function getRandomInt(min, max) {
+  //   return Math.floor(Math.random() * (max - min) + min);
+  // }
 
-  useEffect(() => {
-    fetch(`/carescapes/${getRandomInt(1, 6)}`)
-      .then((r) => r.json())
-      .then((data) => {
-        setCarescapeImage(data.image);
-        console.log(carescapeImage);
-      });
-  });
+  // useEffect(() => {
+  //   fetch(`/carescapes/${getRandomInt(1, 6)}`)
+  //     .then((r) => r.json())
+  //     .then((data) => {
+  //       setCarescapeImage(data.image);
+  //       console.log(carescapeImage);
+  //     });
+  // });
 
-  function getCarescape(pastEventObj) {
-    fetch(`/carescapes`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        api_address: "www.aiart.org",
-        image: carescapeImage,
-        past_event_id: pastEventObj.id,
-      }),
-    })
-      .then((r) => r.json())
-      .then((data) => console.log(data));
-  }
+  // function getCarescape(pastEventObj) {
+  //   fetch(`/carescapes`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       api_address: "www.aiart.org",
+  //       image: carescapeImage,
+  //       past_event_id: pastEventObj.id,
+  //     }),
+  //   })
+  //     .then((r) => r.json())
+  //     .then((data) => console.log(data));
+  // }
 
   function handleEventCompletedClick(id) {
     fetch(`events/${id}`, {
@@ -49,9 +49,9 @@ function EventCard({ event, events, setEvents, pastEvents, setPastEvents }) {
         // fetch(`/events/${id}`, {
         //   method: "DELETE",
         // });
-        setEvents([...events]);
-        getCarescape(pastEventObj);
-        console.log(pastEventObj.id)
+        // setEvents([...events]);
+        // getCarescape(pastEventObj);
+        console.log(pastEventObj)
         setPastEvents([...pastEvents, pastEventObj]);
       });
   }

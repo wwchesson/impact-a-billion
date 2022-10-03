@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
-import { CssBaseline, Typography, Card, CardMedia, CardContent } from "@mui/material";
+import {
+  CssBaseline,
+  Typography,
+  Card,
+  CardMedia,
+  CardContent,
+} from "@mui/material";
 import impactLogo from "../images/impactLogo.jpeg";
 
 function LoginPage({ onLogin }) {
@@ -9,15 +15,35 @@ function LoginPage({ onLogin }) {
 
   return (
     <CssBaseline>
-      <Typography  padding="20px"
-        justifyContent="center"
-        display="flex"
-        variant="h4"
-        marginTop="20px">
-     build community, impact lives
-      </Typography>
-      <br />
-      <img alt="logo" src={impactLogo} className="signin-logo"/>
+      <Card sx={{ bgcolor: "#157a8c" }}>
+        <CardMedia>
+          <img alt="logo" src={impactLogo} className="signin-logo" />
+        </CardMedia>
+        <CardContent
+          sx={{
+            margin: "auto",
+            display: "flex",
+            justifyContent: "center",
+            width: "700px",
+          }}
+        >
+          <Typography
+            padding="20px"
+            justifyContent="center"
+            display="flex"
+            variant="h5"
+            color="#c9cfd1"
+          >
+            <strong>
+              impactABillion is a forum for building community through service
+              projects. By reaching out to those around us and responding to
+              their needs, anyone can make an impact.
+            </strong>
+
+            <br />
+          </Typography>
+        </CardContent>
+      </Card>
       <br />
       <Card
         sx={{
@@ -28,15 +54,16 @@ function LoginPage({ onLogin }) {
           width: 500,
           display: "flex",
           justifyContent: "center",
+          marginTop: "30px",
         }}
       >
         <CardContent>
           {showLogin ? (
             <>
               <LoginForm onLogin={onLogin} />
-              <br />
-              <p>
-                Create an account &nbsp;{" "}
+              <p className="create-account">
+                
+                <strong>Create an account</strong> &nbsp;{" "}
                 <button onClick={() => setShowLogin(false)}> Sign up </button>
               </p>
             </>

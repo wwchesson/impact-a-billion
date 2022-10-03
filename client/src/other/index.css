@@ -63,16 +63,21 @@ code {
   justify-content: center;
 }
 
-.signin-logo{
+.signin-logo {
   justify-content: center;
   text-align: center;
   margin: auto;
   display: flex;
-  margin-bottom: 25px;
+  margin-top: 25px;
+  /* margin-bottom: 25px; */
 }
 
-.carescapes{
+.carescapes {
   margin-left: 50px;
   margin-top: 50px;
-  margin-bottom: 50px
+  margin-bottom: 50px;
+}
+
+.create-account {
+  margin-left: 10px;
 }
