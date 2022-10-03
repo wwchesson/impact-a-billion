@@ -23,9 +23,6 @@ function ProfileCard({ user }) {
       <Typography id="user-info" variant="h5">
         Current Zip Code: {zip}
       </Typography>
-      <Link to="/organizer-application">
-        <Typography variant="h5">Become an Organizer</Typography>
-      </Link>
     </div>
   );
 }

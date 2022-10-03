@@ -51,7 +51,7 @@ function EventCard({ event, events, setEvents }) {
         </CardContent>
 
         {associatedEvent ? (
-          <Typography>You're signed up!</Typography>
+          <Typography marginLeft="10px" style={{color: "blue"}}><strong>You're signed up!</strong></Typography>
         ) : (
           <Button onClick={() => handleEventSignUp(event.id)}>Sign up</Button>
         )}

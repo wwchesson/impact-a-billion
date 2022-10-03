@@ -43,7 +43,6 @@ function UserProfile() {
             src={singleUser.image}
             sx={{ marginTop: 10, width: 200, height: 200 }}
           ></Avatar>
-
         </Box>
         <Typography
           variant="h3"
@@ -64,9 +63,6 @@ function UserProfile() {
           id="user-card"
         >
           <CardContent>
-            <Button onClick={() => setShowEditForm(!showEditForm)}>
-              Edit Profile
-            </Button>
             {showEditForm ? (
               <EditProfileForm
                 singleUser={singleUser}
@@ -77,6 +73,12 @@ function UserProfile() {
             ) : (
               <ProfileCard user={singleUser} />
             )}
+            <Button
+              sx={{ padding: "10px", marginBottom: "10px" }}
+              onClick={() => setShowEditForm(!showEditForm)}
+            >
+              <Typography variant="h6">Edit Profile</Typography>
+            </Button>
           </CardContent>
         </Card>
       </CssBaseline>
