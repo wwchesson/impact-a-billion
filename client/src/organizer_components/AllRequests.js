@@ -43,6 +43,7 @@ function AllRequests({ setEvents, events }) {
       });
   }
 
+  if (allRequests.length >= 1) {
   return (
     <Container maxWidth="md">
       <Grid container spacing={4}>
@@ -75,7 +76,10 @@ function AllRequests({ setEvents, events }) {
         ))}
       </Grid>
     </Container>
-  );
+  )}
+  else {
+    return (<Typography sx={{padding: "10px"}}>There are no requests at this time.</Typography>)
+  }
 }
 
 export default AllRequests;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Typography, Card, Button, Box } from "@mui/material";
+import { Typography, Card, Button, Box, CardContent } from "@mui/material";
 import AllRequests from "./AllRequests";
 import AllEvents from "./AllEvents";
 import AllImpacters from "./AllImpacters";
@@ -57,6 +57,7 @@ function OrganizerHome() {
           </Button>
           {showEvents ? (
             <AllEvents
+              
               events={events.filter((event) => event.organizer_id === userId)}
               setEvents={setEvents}
               setPastEvents={setPastEvents}

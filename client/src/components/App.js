@@ -15,7 +15,6 @@ import OrganizerApply from "./OrganizerApply"
 function App() {
   const [posts, setPosts] = useState([]);
   const [requests, setRequests] = useState([]);
-  const [impacterEvents, setImpacterEvents] = useState([]);
 
   useEffect(() => {
     fetch("/posts")
@@ -34,16 +33,6 @@ function App() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   fetch("/impacter_events")
-  //     .then((r) => r.json())
-  //     .then((data) => {
-  //       setImpacterEvents(data);
-  //       // console.log(data);
-  //     });
-  // }, []);
-
-  
 
   return (
     <div className="App">
