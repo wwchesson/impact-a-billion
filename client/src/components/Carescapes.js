@@ -4,7 +4,6 @@ import { UserContext } from "../Context";
 import {
   Card,
   CardContent,
-  CardMedia,
   Typography,
   Grid,
   Container,
@@ -51,7 +50,7 @@ function Carescapes() {
             carescape page is a collection of all the service you have given to
             your community.
           </Typography>
-          <Link to="/carescapes">
+          <Link to="/allcarescapes">
             <Typography sx={{textAlign: "center", marginTop: "20px"}} variant="h5">
               See All Carescapes  
             </Typography>

@@ -69,7 +69,7 @@ function App() {
         element={<Carescapes />}
         ></Route>
        <Route
-       path="/carescapes"
+       path="/allcarescapes"
        element={<AllCarescapes />
        }
        ></Route>
