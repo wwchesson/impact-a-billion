@@ -44,14 +44,14 @@ function App() {
           path="/home"
           element={<Home posts={posts} />}
         ></Route>
-        <Route path="/users/:id" element={<UserProfile />}></Route>
-        <Route path="/posts" element={<Posts posts={posts} setPosts={setPosts}/>}></Route>
+        <Route path="/this-user/:id" element={<UserProfile />}></Route>
+        <Route path="/myposts" element={<Posts posts={posts} setPosts={setPosts}/>}></Route>
         <Route
           path="/newpost"
           element={<PostForm posts={posts} setPosts={setPosts} />}
         ></Route>
         <Route
-          path="/requests"
+          path="/myrequests"
           element={<Requests requests={requests} setRequests={setRequests}/>}
         ></Route>
         <Route
@@ -61,7 +61,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/events"
+          path="/browse-events"
           element={<BrowseEvents  />}
         ></Route>
         <Route

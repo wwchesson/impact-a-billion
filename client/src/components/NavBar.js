@@ -16,7 +16,7 @@ import impactLogo from "../images/impactLogo.jpeg";
 function NavBar() {
   const user = useContext(UserContext);
   const userId = user.currentUser.id;
-  const profile = `/users/${userId}`;
+  const profile = `/this-user/${userId}`;
 
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -63,7 +63,7 @@ function NavBar() {
           </Typography>
 
           <Typography sx={{ flexGrow: 1, display: "flex" }}>
-            <Link href="/events" style={{ color: "white" }}>
+            <Link href="/browse-events" style={{ color: "white" }}>
               Events
             </Link>
           </Typography>
@@ -75,13 +75,13 @@ function NavBar() {
           </Typography>
 
           <Typography sx={{ flexGrow: 1, display: "flex" }}>
-            <Link href="/posts" style={{ color: "white" }}>
+            <Link href="/myposts" style={{ color: "white" }}>
               Posts
             </Link>
           </Typography>
 
           <Typography sx={{ flexGrow: 1, display: "flex" }}>
-            <Link href="/requests" style={{ color: "white" }}>
+            <Link href="/myrequests" style={{ color: "white" }}>
               Requests
             </Link>
           </Typography>
