@@ -52,7 +52,7 @@ Event.create(name: "Donation Sorting", description: "Goodwill needs volunteers t
 
 Carescape.create(api_address: "www.aiart.org", comments: [], likes: 3, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGVBG-gLrwqT_ZbUTjoHbgahHy1h2Qtx28xw&usqp=CAU", past_event_id: 2)
 
-Carescape.create(api_address: "www.aiart.org", comments: [], likes: 0, image: "https://magazine.artland.com/wp-content/uploads/2021/03/dali-1_custom-4421178b13c8b812ac76ab5e41c7387e428aee42-min.jpeg", past_event_id: 3)
+Carescape.create(api_address: "www.aiart.org", comments: [], likes: 0, image: "https://i.ebayimg.com/images/g/qD8AAOSwf~9ZZ9jY/s-l500.jpg", past_event_id: 3)
 
 Carescape.create(api_address: "www.aiart.org", comments: [], likes: 0, image: "https://thumbs.dreamstime.com/z/kids-reading-book-woods-long-chairs-two-children-books-surreal-smoke-underneath-bubbles-air-44476251.jpg", past_event_id: 1)
 
@@ -65,7 +65,9 @@ ImpacterEvent.create(event_id: 1, impacter_id: 2)
 ImpacterEvent.create(event_id: 2, impacter_id: 3)
 ImpacterEvent.create(event_id: 2, impacter_id: 4)
 
-
-
+ImpacterPastEvent.create(past_event_id: 1, user_id: 1)
+ImpacterPastEvent.create(past_event_id: 2, user_id: 2)
+ImpacterPastEvent.create(past_event_id: 3, user_id: 3)
+ImpacterPastEvent.create(past_event_id: 4, user_id: 4)
 
 puts "Done seeding"
