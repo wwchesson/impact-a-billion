@@ -30,13 +30,18 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       past_event_params = {name: @event.name, description: @event.description, category: @event.category, image: @event.image, organizer_id: @event.organizer_id, date: @event.date}
       
+      past_event_impacters = @event.impacters
+
       new_past_event = PastEvent.create(past_event_params)
+
+      past_event_impacters.each{|impacter| ImpacterPastEvent.create(user_id: impacter.id, past_event_id: new_past_event.id)}
       
       new_carescape = Carescape.create(api_address: "www.aiart.org", past_event_id: new_past_event.id, image: Carescape.find(rand(1..5)).image)
       
       new_past_event.carescape = Carescape.find(new_carescape.id)
   
       new_past_event.save
+
       render json: new_past_event, status: :created
       
     else
