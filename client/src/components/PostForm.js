@@ -27,12 +27,15 @@ function PostForm({ posts, setPosts }) {
 
   // console.log(userWithPosts)
   const pastEventInfo = posts.map((post) => (
-   <div>
-     <h4>{post.past_event_id}</h4>
-    <h4>{post.past_event_name}</h4>
-   </div>
-   
-  ))
+    <div key={post.id}>
+      <h4>{post.past_event_id}</h4>
+      <h4>{post.past_event_name}</h4>
+    </div>
+  ));
+
+  // const userPastEvents = posts.filter((post) => post.user.id === userId)
+  // console.log(userPastEvents)
+  console.log(userId);
 
   function handleAddNewPost(newPost) {
     const userCopy = { ...userWithPosts };
@@ -45,7 +48,7 @@ function PostForm({ posts, setPosts }) {
   const [postFormData, setPostFormData] = useState({
     image: "",
     caption: "",
-    past_event_id: 0
+    past_event_id: 0,
   });
 
   function handlePostInputChange(e) {
@@ -113,9 +116,10 @@ function PostForm({ posts, setPosts }) {
             onChange={handlePostInputChange}
           >
             {posts.map((post) => (
-              <MenuItem value={post.past_event_id}>{post.past_event_name}</MenuItem>
+              <MenuItem key={post.id} value={post.past_event_id}>
+                {post.past_event_name}
+              </MenuItem>
             ))}
- 
           </Select>
         </FormControl>
         <br />

@@ -29,6 +29,7 @@ class EventsController < ApplicationController
   def update
     if @event.update(event_params)
       past_event_params = {name: @event.name, description: @event.description, category: @event.category, image: @event.image, organizer_id: @event.organizer_id, date: @event.date}
+      
       new_past_event = PastEvent.create(past_event_params)
       
       new_carescape = Carescape.create(api_address: "www.aiart.org", past_event_id: new_past_event.id, image: Carescape.find(rand(1..5)).image)
