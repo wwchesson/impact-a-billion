@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { UserContext } from "../Context";
 
-function PostForm({ posts, setPosts }) {
+function PostForm({ posts, setPosts, myPastEvents }) {
   //program submit function
   const navigate = useNavigate();
   const user = useContext(UserContext);
@@ -33,9 +33,9 @@ function PostForm({ posts, setPosts }) {
     </div>
   ));
 
-  // const userPastEvents = posts.filter((post) => post.user.id === userId)
-  // console.log(userPastEvents)
-  console.log(userId);
+  // const associatedPosts = posts.filter((post) => post.past_event_id === )
+    // const pastEventsArray = myPastEvents.map((past_event) => past_event.past_event_id)
+    // console.log(pastEventsArray)
 
   function handleAddNewPost(newPost) {
     const userCopy = { ...userWithPosts };
@@ -48,7 +48,7 @@ function PostForm({ posts, setPosts }) {
   const [postFormData, setPostFormData] = useState({
     image: "",
     caption: "",
-    past_event_id: 0,
+    past_event_id: "",
   });
 
   function handlePostInputChange(e) {
@@ -69,7 +69,7 @@ function PostForm({ posts, setPosts }) {
       .then((r) => r.json())
       .then((newPost) => {
         handleAddNewPost(newPost);
-        navigate("/posts");
+        navigate("/myposts");
       });
   }
 
@@ -111,13 +111,15 @@ function PostForm({ posts, setPosts }) {
           <InputLabel>Past Event</InputLabel>
           <Select
             name="past_event_id"
+            type="number"
             label="Past Event"
+            defaultValue=""
             value={postFormData.past_event_id}
             onChange={handlePostInputChange}
           >
-            {posts.map((post) => (
-              <MenuItem key={post.id} value={post.past_event_id}>
-                {post.past_event_name}
+            {myPastEvents.map((past_event) => (
+              <MenuItem key={past_event.id} value={past_event.past_event_id}>
+                {past_event.past_event_name}
               </MenuItem>
             ))}
           </Select>

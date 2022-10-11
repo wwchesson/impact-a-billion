@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import UserProfile from "./UserProfile";
 import NavBar from "./NavBar";
@@ -12,8 +12,13 @@ import BrowseEvents from "./BrowseEvents";
 import Carescapes from "./Carescapes";
 import AllCarescapes from "./AllCarescapes";
 import AllPosts from "./AllPosts";
+import { UserContext } from "../Context";
 
 function App() {
+  const user = useContext(UserContext);
+  const userId = user.currentUser.id;
+
+  const [impacterPastEvent, setImpacterPastEvent] = useState([]);
   const [posts, setPosts] = useState([]);
   const [requests, setRequests] = useState([]);
 
@@ -34,6 +39,18 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    fetch("/impacter_past_events")
+      .then((r) => r.json())
+      .then((data) => {
+        setImpacterPastEvent(data);
+      });
+  }, []);
+
+  const myPastEvents = impacterPastEvent.filter(
+    (pastEvent) => pastEvent.user_id === userId
+  );
+
 
   return (
     <div className="App">
@@ -48,7 +65,7 @@ function App() {
         <Route path="/myposts" element={<Posts posts={posts} setPosts={setPosts}/>}></Route>
         <Route
           path="/newpost"
-          element={<PostForm posts={posts} setPosts={setPosts} />}
+          element={<PostForm posts={posts} setPosts={setPosts} myPastEvents={myPastEvents} />}
         ></Route>
         <Route
           path="/myrequests"
@@ -66,7 +83,7 @@ function App() {
         ></Route>
         <Route
         path="/gallery"
-        element={<Carescapes />}
+        element={<Carescapes myPastEvents={myPastEvents}/>}
         ></Route>
        <Route
        path="/allcarescapes"

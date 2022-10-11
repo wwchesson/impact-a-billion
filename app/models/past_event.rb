@@ -10,10 +10,6 @@ class PastEvent < ApplicationRecord
         self.carescape.image
     end
 
-    def associated_users
-        self.users.map{|user| user.id}
-    end
-
 
 
 end

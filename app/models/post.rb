@@ -14,7 +14,5 @@ class Post < ApplicationRecord
         self.past_event.location
     end
 
-    def associated_past_event_user
-        self.past_event.users.pluck(:id)
-    end
+   
 end

@@ -11,23 +11,23 @@ import {
 } from "@mui/material";
 import CarescapeCard from "./CarescapeCard";
 
-function Carescapes() {
+function Carescapes({myPastEvents}) {
   const user = useContext(UserContext);
   const userId = user.currentUser.id;
 
   const [impacterPastEvent, setImpacterPastEvent] = useState([]);
 
-  useEffect(() => {
-    fetch("/impacter_past_events")
-      .then((r) => r.json())
-      .then((data) => {
-        setImpacterPastEvent(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("/impacter_past_events")
+  //     .then((r) => r.json())
+  //     .then((data) => {
+  //       setImpacterPastEvent(data);
+  //     });
+  // }, []);
 
-  const myPastEvents = impacterPastEvent.filter(
-    (pastEvent) => pastEvent.user_id === userId
-  );
+  // const myPastEvents = impacterPastEvent.filter(
+  //   (pastEvent) => pastEvent.user_id === userId
+  // );
 
   return (
     <CssBaseline>
