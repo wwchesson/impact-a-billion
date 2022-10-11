@@ -62,7 +62,7 @@ function App() {
           element={<Home posts={posts} />}
         ></Route>
         <Route path="/this-user/:id" element={<UserProfile />}></Route>
-        <Route path="/myposts" element={<Posts posts={posts} setPosts={setPosts}/>}></Route>
+        <Route path="/myposts" element={<Posts posts={posts} setPosts={setPosts} myPastEvents={myPastEvents}/>}></Route>
         <Route
           path="/newpost"
           element={<PostForm posts={posts} setPosts={setPosts} myPastEvents={myPastEvents} />}

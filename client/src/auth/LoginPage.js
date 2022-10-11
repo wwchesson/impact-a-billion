@@ -70,7 +70,7 @@ function LoginPage({ onLogin }) {
               <br />
               <Typography sx={{marginTop: "20px", marginLeft: "5px"}} variant="h5" color="#060f78"><strong>Want to become an organizer?</strong>
                  <br />
-                <a href="willchesson@gmail.com">Contact Will</a>
+                <a href="mailto: willchesson@gmail.com">Contact Will</a>
               </Typography>
             </>
           ) : (
