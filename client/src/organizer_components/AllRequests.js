@@ -20,7 +20,9 @@ function AllRequests({ setEvents, events }) {
   useEffect(() => {
     fetch("/requests")
       .then((r) => r.json())
-      .then((data) => setAllRequests(data));
+      .then((data) => {
+        // console.log(data)
+        setAllRequests(data.filter((request) => request.user_id !== organizer_id))});
   }, []);
 
   function handleApproveClick(id) {

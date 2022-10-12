@@ -66,7 +66,7 @@ function RequestForm({ requests, setRequests }) {
       .then((r) => r.json())
       .then((newRequest) => {
         handleAddNewRequest(newRequest);
-        navigate("requests");
+        navigate("/myrequests");
       });
   }
 
@@ -182,7 +182,7 @@ function RequestForm({ requests, setRequests }) {
         >
           <InputLabel>Frequency</InputLabel>
           <Select
-            name="hours_requested"
+            name="frequency"
             value={requestFormData.frequency}
             onChange={handleRequestInputChange}
           >
