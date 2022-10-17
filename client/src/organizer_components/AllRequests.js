@@ -16,13 +16,19 @@ function AllRequests({ setEvents, events }) {
   const organizer_id = user.currentUser.id;
   const [allRequests, setAllRequests] = useState([]);
 
-
   useEffect(() => {
     fetch("/requests")
       .then((r) => r.json())
       .then((data) => {
         // console.log(data)
-        setAllRequests(data.filter((request) => request.user_id !== organizer_id))});
+        setAllRequests(
+          data.filter(
+            (request) =>
+              request.user_id !== organizer_id &&
+              request.denied !== organizer_id
+          )
+        );
+      });
   }, []);
 
   function handleApproveClick(id) {
@@ -45,50 +51,73 @@ function AllRequests({ setEvents, events }) {
       });
   }
 
-  function handleDenyClick(id) {
-    fetch(`/requests/${id}`, {
-      method: "DELETE"
-    })
-    .then((r) => r.json())
-    .then(setAllRequests(allRequests.filter(request => request.id !== id)));
+ 
+
+  function handleDenyClick(denied, id) {
+    if (denied > 0) {
+      fetch(`/requests/${id}`, {
+        method: "DELETE",
+      }).then(
+        setAllRequests(allRequests.filter((request) => request.id !== id))
+      );
+    } else {
+      fetch(`/requestpatch/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ request: { denied: organizer_id } }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+        setAllRequests(allRequests.filter((request => request.id !== data.id)));
+        console.log(data)
+    });
+    }
   }
 
   if (allRequests.length >= 1) {
-  return (
-    <Container maxWidth="md">
-      <Grid container spacing={4}>
-        {allRequests.map((request) => (
-          <Grid item key={request.id} xs={12} sm={6} md={4}>
-            <Card>
-              <CardMedia
-                component="img"
-                image={request.image}
-                height="150"
-              ></CardMedia>
-              <CardContent>
-                <strong>Name:</strong> {request.name}
-                <br />
-                <strong>Description:</strong> {request.description}
-                <br />
-                <strong>Hours Requested:</strong> {request.hours_requested}
-                <br />
-                <strong>Location:</strong> {request.location}
-                <br />
-                <strong>Impacter:</strong> {request.user_name_for_request}
-                <br />
-                <Button onClick={() => handleApproveClick(request.id)}>
-                  Approve
-                </Button>
-                <Button onClick={() => handleDenyClick(request.id)}>Deny</Button>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
-  )}
-  else {
-    return (<Typography sx={{padding: "10px"}}>There are no requests at this time.</Typography>)
+    return (
+      <Container maxWidth="md">
+        <Grid container spacing={4}>
+          {allRequests.map((request) => (
+            <Grid item key={request.id} xs={12} sm={6} md={4}>
+              <Card>
+                <CardMedia
+                  component="img"
+                  image={request.image}
+                  height="150"
+                ></CardMedia>
+                <CardContent>
+                  <strong>Name:</strong> {request.name}
+                  <br />
+                  <strong>Description:</strong> {request.description}
+                  <br />
+                  <strong>Hours Requested:</strong> {request.hours_requested}
+                  <br />
+                  <strong>Location:</strong> {request.location}
+                  <br />
+                  <strong>Impacter:</strong> {request.user_name_for_request}
+                  <br />
+                  <Button onClick={() => handleApproveClick(request.id)}>
+                    Approve
+                  </Button>
+                  <Button
+                    onClick={() => handleDenyClick(request.denied, request.id)}
+                  >
+                    Deny
+                  </Button>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    );
+  } else {
+    return (
+      <Typography sx={{ padding: "10px" }}>
+        There are no requests at this time.
+      </Typography>
+    );
   }
 }
 
