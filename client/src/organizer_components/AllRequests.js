@@ -45,6 +45,14 @@ function AllRequests({ setEvents, events }) {
       });
   }
 
+  function handleDenyClick(id) {
+    fetch(`/requests/${id}`, {
+      method: "DELETE"
+    })
+    .then((r) => r.json())
+    .then(setAllRequests(allRequests.filter(request => request.id !== id)));
+  }
+
   if (allRequests.length >= 1) {
   return (
     <Container maxWidth="md">
@@ -71,7 +79,7 @@ function AllRequests({ setEvents, events }) {
                 <Button onClick={() => handleApproveClick(request.id)}>
                   Approve
                 </Button>
-                <Button>Deny</Button>
+                <Button onClick={() => handleDenyClick(request.id)}>Deny</Button>
               </CardContent>
             </Card>
           </Grid>
