@@ -4,7 +4,6 @@ import {
   CardMedia,
   CardContent,
   Container,
-  Box,
   Typography,
   Button,
   Grid,
@@ -69,7 +68,7 @@ function AllRequests({ setEvents, events }) {
         .then((r) => r.json())
         .then((data) => {
         setAllRequests(allRequests.filter((request => request.id !== data.id)));
-        console.log(data)
+        // console.log(data)
     });
     }
   }

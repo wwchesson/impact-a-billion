@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Card,
   CardMedia,
@@ -21,7 +21,6 @@ function PastEvents({ pastEvents }) {
                 <CardMedia
                   component="img"
                   image={pastEvent.carescape_image}
-                  // image={pastEvent.image}
                   height="150"
                 ></CardMedia>
                 <CardContent>

@@ -14,11 +14,6 @@ class UsersController < ApplicationController
     render json: @user, serializer: UserWithActivitiesSerializer
   end
 
-  # # GET /userevents
-  # def events 
-  #   render json: @user, serializer: UserWithEventsSerializer
-  # end
-
   def authenticateuser
     @current_user = User.find_by(id: session[:user_id])
     render json: @current_user, status: :created

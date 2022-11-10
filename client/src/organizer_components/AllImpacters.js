@@ -22,11 +22,6 @@ function AllImpacters({ events }) {
       .then((data) => setAllImpacters(data));
   }, []);
 
-  //   useEffect(() => {
-  //     fetch("/impacter_events")
-  //       .then((r) => r.json())
-  //       .then((data) => setImpacterEvents(data));
-  //   }, []);
 
   return (
     <Container maxWidth="md">

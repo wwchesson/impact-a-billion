@@ -1,7 +1,5 @@
 import React from "react";
 import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import OrganizerApply from "./OrganizerApply";
 
 function ProfileCard({ user }) {
   const { skills, availability, travel_radius, zip, token_points } = user;

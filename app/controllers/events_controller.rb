@@ -49,7 +49,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # params.permit(:name, :description, :location, :category, :date, :organizer_id, :image)
 
   # DELETE /events/1
   def destroy

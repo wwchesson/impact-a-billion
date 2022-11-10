@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import {
   Card,
   CardContent,
   CardMedia,
   Typography,
   Grid,
-  Container,
   Button,
 } from "@mui/material";
 import { UserContext } from "../Context";
 
-function EventCard({ event, events, setEvents }) {
+function EventCard({ event, setEvents }) {
   const user = useContext(UserContext);
   const userId = user.currentUser.id;
   const userName = user.currentUser.name;

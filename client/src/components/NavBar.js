@@ -17,6 +17,7 @@ function NavBar() {
   const user = useContext(UserContext);
   const userId = user.currentUser.id;
   const profile = `/this-user/${userId}`;
+  const sxNav = { flexGrow: 1, display: "flex" }
 
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -47,7 +48,7 @@ function NavBar() {
             <CardMedia
               component="img"
               image={impactLogo}
-              sx={{ flexGrow: 1, display: "flex" }}
+              sx={ sxNav }
             ></CardMedia>
           </Card>
           <Typography sx={{ flexGrow: 1, display: "flex", marginLeft: "20px" }}>
@@ -56,31 +57,31 @@ function NavBar() {
             </Link>{" "}
           </Typography>
 
-          <Typography sx={{ flexGrow: 1, display: "flex" }}>
+          <Typography sx={ sxNav }>
             <Link href="/gallery" style={{ color: "white" }}>
               Carescapes
             </Link>
           </Typography>
 
-          <Typography sx={{ flexGrow: 1, display: "flex" }}>
+          <Typography sx={ sxNav }>
             <Link href="/browse-events" style={{ color: "white" }}>
               Events
             </Link>
           </Typography>
 
-          <Typography sx={{ flexGrow: 1, display: "flex" }}>
+          <Typography sx={ sxNav }>
             <Link href={profile} style={{ color: "white" }}>
               Profile
             </Link>
           </Typography>
 
-          <Typography sx={{ flexGrow: 1, display: "flex" }}>
+          <Typography sx={ sxNav }>
             <Link href="/myposts" style={{ color: "white" }}>
               Posts
             </Link>
           </Typography>
 
-          <Typography sx={{ flexGrow: 1, display: "flex" }}>
+          <Typography sx={ sxNav }>
             <Link href="/myrequests" style={{ color: "white" }}>
               Requests
             </Link>

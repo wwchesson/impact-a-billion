@@ -10,7 +10,6 @@ function SignupForm({ onLogin }) {
   const [email, setEmail] = useState("");
   const [zip, setZip] = useState("");
   const [errors, setErrors] = useState([]);
-  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -36,7 +35,6 @@ function SignupForm({ onLogin }) {
           console.log(user);
           onLogin(user);
         });
-        // navigate("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

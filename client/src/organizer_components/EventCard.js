@@ -16,11 +16,7 @@ function EventCard({ event, events, setEvents, pastEvents, setPastEvents }) {
     })
       .then((r) => r.json())
       .then((pastEventObj) => {
-        // fetch(`/events/${id}`, {
-        //   method: "DELETE",
-        // });
         setEvents(events.filter(event => event.id !== id));
-
         console.log(pastEventObj)
         setPastEvents([...pastEvents, pastEventObj]);
       });

@@ -7,11 +7,8 @@ import {
   CssBaseline,
   Avatar,
   Box,
-  IconButton,
   Button,
-  Grid,
 } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
 import EditProfileForm from "./EditProfileForm";
 import ProfileCard from "./ProfileCard";
 
