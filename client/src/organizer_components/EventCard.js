@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Grid, Card, CardContent, CardMedia, Button } from "@mui/material";
 import EventImpacters from "./EventImpacters";
 
 function EventCard({ event, events, setEvents, pastEvents, setPastEvents }) {
   const [showEventImpacters, setShowEventImpacters] = useState(false);
-
 
   function handleEventCompletedClick(id) {
     fetch(`events/${id}`, {
@@ -16,8 +15,8 @@ function EventCard({ event, events, setEvents, pastEvents, setPastEvents }) {
     })
       .then((r) => r.json())
       .then((pastEventObj) => {
-        setEvents(events.filter(event => event.id !== id));
-        console.log(pastEventObj)
+        setEvents(events.filter((event) => event.id !== id));
+        console.log(pastEventObj);
         setPastEvents([...pastEvents, pastEventObj]);
       });
   }

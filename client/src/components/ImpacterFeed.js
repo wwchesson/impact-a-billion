@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import {
   Grid,
-  Paper,
   Card,
   CardMedia,
   CardContent,

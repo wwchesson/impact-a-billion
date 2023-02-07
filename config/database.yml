@@ -84,3 +84,4 @@ production:
   database: impact_a_billion_production
   username: impact_a_billion
   password: <%= ENV["IMPACT_A_BILLION_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
