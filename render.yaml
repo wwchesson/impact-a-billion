@@ -1,18 +1,18 @@
 databases:
-  - name: impact-a-billion
-    databaseName: impact-a-billion
-    user: impact-a-billion
+  - name: impactabillion
+    databaseName: impactabillion
+    user: impactabillion
 
 services:
   - type: web
-    name: impact-a-billion
+    name: impactabillion
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: impact-a-billion
+          name: impactabillion
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
