@@ -50,3 +50,5 @@ end
 
 
 gem "active_model_serializers", "~> 0.10.13"
+
+gem 'sprockets-rails', :require => 'sprockets/railtie'
