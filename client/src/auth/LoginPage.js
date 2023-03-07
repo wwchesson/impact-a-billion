@@ -25,7 +25,7 @@ function LoginPage({ onLogin }) {
             margin: "auto",
             display: "flex",
             justifyContent: "center",
-            width: "700px",
+            maxWidth: "700px"
           }}
         >
           <Typography
