@@ -2,7 +2,7 @@
 
 ## Summary
 
-<img src="./app.gif" alt="sampleLiveProject" height="700" />
+<img src="./app.gif" alt="sampleLiveProject" height="700" >
 
 impactABillion is a software solution for community building and service opportunities. It brokers requests from community members and people who are looking to make an impact on that community.
 
