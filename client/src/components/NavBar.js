@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import { UserContext } from "../Context";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
   Button,
   Typography,
   Box,
-  Link,
   Card,
   CardMedia,
 } from "@mui/material";
@@ -52,37 +51,37 @@ function NavBar() {
             ></CardMedia>
           </Card>
           <Typography sx={{ flexGrow: 1, display: "flex", marginLeft: "20px" }}>
-            <Link href="/home" style={{ color: "white" }}>
+            <Link to="/home" style={{ color: "white" }}>
               Home
             </Link>{" "}
           </Typography>
 
           <Typography sx={ sxNav }>
-            <Link href="/gallery" style={{ color: "white" }}>
+            <Link to="/gallery" style={{ color: "white" }}>
               Carescapes
             </Link>
           </Typography>
 
           <Typography sx={ sxNav }>
-            <Link href="/browse-events" style={{ color: "white" }}>
+            <Link to="/browse-events" style={{ color: "white" }}>
               Events
             </Link>
           </Typography>
 
           <Typography sx={ sxNav }>
-            <Link href={profile} style={{ color: "white" }}>
+            <Link to={profile} style={{ color: "white" }}>
               Profile
             </Link>
           </Typography>
 
           <Typography sx={ sxNav }>
-            <Link href="/myposts" style={{ color: "white" }}>
+            <Link to="/myposts" style={{ color: "white" }}>
               Posts
             </Link>
           </Typography>
 
           <Typography sx={ sxNav }>
-            <Link href="/myrequests" style={{ color: "white" }}>
+            <Link to="/myrequests" style={{ color: "white" }}>
               Requests
             </Link>
           </Typography>
