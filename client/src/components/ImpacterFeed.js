@@ -58,9 +58,9 @@ function ImpacterFeed({ posts }) {
         color="#8f3801"
         >Welcome {user.currentUser.name}! </Typography>
       <br />
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={{ xs: 4, sm: 8, md: 12 }}>
-          <Grid item xs={2} sm={3} md={5} marginLeft="80px">
+      {/* <Box sx={{ display: "flex", justifyContent: "center", margin: "auto"}}> */}
+        <Grid container sx={{display: "flex", justifyContent: "center", margin: "auto"}}>
+          <Grid item xs={12} md={6} margin="1rem">
             <Typography
               justifyContent="center"
               display="flex"
@@ -80,7 +80,7 @@ function ImpacterFeed({ posts }) {
               </Card>
             ))}
           </Grid>
-          <Grid item xs={2} sm={3} md={5}>
+          <Grid item xs={12} md={5} margin="1rem">
             <Grid>
               <Typography
                 justifyContent="center"
@@ -129,7 +129,7 @@ function ImpacterFeed({ posts }) {
             </Grid>
           </Grid>
         </Grid>
-      </Box>
+      {/* </Box> */}
     </div>
   );
 }
