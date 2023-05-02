@@ -4,7 +4,6 @@ import {
   Card,
   CardMedia,
   CardContent,
-  Box,
   Typography,
 } from "@mui/material";
 import { UserContext } from "../Context";
