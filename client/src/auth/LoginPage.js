@@ -8,6 +8,7 @@ import {
   CardMedia,
   CardContent,
   Button,
+  Container
 } from "@mui/material";
 import impactLogo from "../images/impactLogo.jpeg";
 
@@ -15,7 +16,14 @@ function LoginPage({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <CssBaseline>
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Card sx={{ bgcolor: "#157a8c" }}>
         <CardMedia>
           <img alt="logo" src={impactLogo} className="signin-logo" />
@@ -25,7 +33,7 @@ function LoginPage({ onLogin }) {
             margin: "auto",
             display: "flex",
             justifyContent: "center",
-            maxWidth: "700px"
+            width: "100vw",
           }}
         >
           <Typography
@@ -49,16 +57,23 @@ function LoginPage({ onLogin }) {
       <Card
         sx={{
           borderRadius: "16px",
-          border: 1,
+          border: 4,
           borderColor: "grey.500",
-          margin: "auto",
-          width: 500,
+          margin: "1rem",
+          maxWidth: "sm",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
-          marginTop: "30px",
+          alignItems: "center",
         }}
       >
-        <CardContent>
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           {showLogin ? (
             <>
               <LoginForm onLogin={onLogin} />
@@ -68,8 +83,16 @@ function LoginPage({ onLogin }) {
                 <Typography variant="h5">create an account</Typography>
               </Button>
               <br />
-              <Typography sx={{marginTop: "20px", marginLeft: "5px"}} variant="h5" color="#060f78"><strong>Want to become an organizer?</strong>
-                 <br />
+              <Typography
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+                variant="h6"
+                color="#060f78"
+              >
+               Become an organizer:
                 <a href="mailto: willchesson@gmail.com">Contact Will</a>
               </Typography>
             </>
@@ -85,7 +108,7 @@ function LoginPage({ onLogin }) {
           )}
         </CardContent>
       </Card>
-    </CssBaseline>
+    </Container>
   );
 }
 

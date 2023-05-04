@@ -32,7 +32,11 @@ function LoginForm({ onLogin }) {
   return (
     <form onSubmit={handleSubmit}>
       <Box
-        sx={{ "& .MuiTextField-root": { m: 1, width: "25ch" } }}
+        sx={{ "& .MuiTextField-root": { m: 1, width: "25ch" },
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
+      }}
         noValidate
         autoComplete="off"
       >
